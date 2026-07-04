@@ -310,6 +310,21 @@ footer>.wrap{position:relative;z-index:1}
 .msg.user{background:var(--blue);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
 .msg a{color:var(--blue);font-weight:600;text-decoration:underline}
 .msg.user a{color:#fff}
+.wa-btn{
+  display:inline-flex;align-items:center;gap:8px;margin-top:10px;
+  background:#25D366!important;color:#fff!important;text-decoration:none!important;
+  font-weight:600;font-size:.85rem;padding:9px 16px;border-radius:100px;
+  box-shadow:0 6px 16px -6px rgba(37,211,102,.55);transition:transform .2s;
+}
+.wa-btn:hover{transform:translateY(-2px)}
+.wa-btn svg{width:16px;height:16px;flex-shrink:0}
+.cal-btn{
+  display:inline-flex;align-items:center;gap:8px;margin-top:10px;margin-left:6px;
+  background:var(--blue)!important;color:#fff!important;text-decoration:none!important;
+  font-weight:600;font-size:.85rem;padding:9px 16px;border-radius:100px;
+  box-shadow:0 6px 16px -6px rgba(42,122,254,.55);transition:transform .2s;
+}
+.cal-btn:hover{transform:translateY(-2px)}
 .typing{display:inline-flex;gap:4px;padding:14px 16px}
 .typing i{width:7px;height:7px;border-radius:50%;background:var(--ink-faint);animation:tbounce 1.2s infinite}
 .typing i:nth-child(2){animation-delay:.15s}
@@ -815,79 +830,81 @@ if(fine&&!noMotion){
     card.addEventListener('mouseleave',()=>{card.style.transform='';card.style.transition=''});
   });
 }
-// ---------- AI Assistant : Skagent ----------
+// ---------- AI Assistant : Skagent v3 ----------
 (function(){
-  const PHONE_DISPLAY='+91 78270 87878';
-  const TEL='<a href="tel:+917827087878">'+PHONE_DISPLAY+'</a>';
-  const WA='<a href="https://wa.me/917827087878" target="_blank" rel="noopener">WhatsApp</a>';
+  const WA_ICON='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.91-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2-1.42.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.35Zm-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 9.88 9.9c0 5.44-4.44 9.87-9.89 9.87Zm8.41-18.28A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.48-8.4Z"/></svg>';
+  const WA_BTN='<br><a class="wa-btn" href="https://wa.me/917827087878?text=Hi%20SkiFi!" target="_blank" rel="noopener">'+WA_ICON+'Chat on WhatsApp</a>';
+  const CAL_BTN='<a class="cal-btn" href="https://calendly.com/contact-skifidesigns/30min" target="_blank" rel="noopener">📅 Book a free call</a>';
   const MAIL='<a href="mailto:contact@skifidesigns.com">contact@skifidesigns.com</a>';
   const CAL='<a href="https://calendly.com/contact-skifidesigns/30min" target="_blank" rel="noopener">book a free 30-minute call</a>';
-  const BRIEF=' Tell me a bit about your project and I\'ll point you in the right direction.';
+  const BRIEF=' What are you building? Tell me a little and I\'ll point you the right way.';
   const KB=[
     {k:['hello','hi ','hii','hey','salam','assalam','good morning','good afternoon','good evening','hai '],
-     a:"Hey there! 👋 Welcome to SkiFi Solutions - we design and build pretty much everything digital: brands, websites, apps, stores, videos, presentations and more. What are you working on?"},
+     a:"Hey! 👋 Great to see you. SkiFi designs and builds pretty much everything digital - brands, websites, apps, stores, videos, presentations. What brings you here today?"},
     {k:['what do you do','services','service','what can you','solutions','offer','capabilities','help me with','everything'],
-     a:"We're a full-stack design & digital studio. Nine solution lines under one roof: <b>brand identity</b>, <b>web design & development</b>, <b>eCommerce</b>, <b>UI/UX & product design</b>, <b>AI & automation</b>, <b>digital marketing & SEO</b>, <b>video & motion graphics</b>, <b>content & copywriting</b>, and <b>presentation design</b>. Most clients start with one and end up using several."+BRIEF},
-    {k:['about','who are you','company','team','how many people','experience','years','founded','story'],
-     a:"SkiFi has been building for <b>7+ years</b> with a <b>20-person team</b> of designers, developers and marketers working from Sheridan, Wyoming (USA) and Kozhikkode, Kerala (India). The scoreboard so far: <b>2,700+ projects</b>, <b>150+ clients</b> in <b>30+ countries</b>, and $150M+ raised by founders using our work."},
+     a:"Think of us as one studio for everything digital:<br>◆ <b>Brand identity</b> - logos, guidelines, rebrands<br>◆ <b>Websites & web apps</b> - design + development<br>◆ <b>eCommerce</b> - Shopify & WooCommerce stores<br>◆ <b>UI/UX & product design</b><br>◆ <b>AI & automation</b><br>◆ <b>Marketing & SEO</b><br>◆ <b>Video & motion graphics</b><br>◆ <b>Content & copywriting</b><br>◆ <b>Presentations</b> - via SkiFi Designs<br>Most clients start with one and stay for several."+BRIEF},
+    {k:['founder','founders','owner','ceo','who started','who runs','ishaque','ameen','who made','who built'],
+     a:"SkiFi was founded by <b>Ishaque</b> and <b>Ameen</b> - both creative designers at heart. They started with presentation design, grew it into a studio that's shipped 2,700+ projects worldwide, and still lead the creative direction on every project. Around them is a 20-person team of designers, developers and marketers across the USA and India."},
+    {k:['about','who are you','company','team','how many people','experience','years','story'],
+     a:"Quick intro: SkiFi is a <b>7+ year old</b> design & digital studio founded by creative designers <b>Ishaque</b> and <b>Ameen</b>, now a <b>20-person team</b> across Sheridan, Wyoming (USA) and Kozhikkode, Kerala (India). The scoreboard: <b>2,700+ projects</b>, <b>150+ clients</b>, <b>30+ countries</b>, and $150M+ raised by founders using our work."},
     {k:['brand','logo','identity','rebrand','guidelines','packaging','visual identity'],
-     a:"Branding is one of our favourite things to build: naming, logo & visual identity, brand guidelines, design systems, packaging and full rebrands. We design brands meant to be remembered - and we run our own, so we design like owners."+BRIEF},
+     a:"Branding is one of our favourite crafts. We handle naming, logo & visual identity, brand guidelines, design systems, packaging and full rebrands - built to be remembered. Since we run our own brands too, we design like owners, not vendors."+BRIEF},
     {k:['website','web design','web dev','landing','webapp','web app','wordpress','app develop','application','site'],
-     a:"We design and develop marketing sites, landing pages, custom web apps and CMS builds (WordPress or headless) - fast, beautiful, SEO-ready and conversion-focused. This very site is our own work. Most websites ship in 2-6 weeks."+BRIEF},
+     a:"We design and develop marketing sites, landing pages, custom web apps and CMS builds (WordPress or headless) - fast, beautiful, SEO-ready. Fun fact: this site you're on is our own work, 3D and all. 😉 Most websites ship in 2-6 weeks."+BRIEF},
     {k:['ecommerce','e-commerce','store','shopify','woocommerce','online shop','sell online','shop','dropship'],
-     a:"eCommerce is home turf - we run our own stores, so we build yours like owners: Shopify/WooCommerce builds, store design, conversion optimisation, payments and shipping setup."+BRIEF},
+     a:"eCommerce is home turf - we run our own stores, so we know what actually sells. We build Shopify & WooCommerce stores with conversion-focused design, payments, shipping and everything in between."+BRIEF},
     {k:['ui','ux','product design','interface','figma','prototype','design system','user experience','mobile app'],
-     a:"Our UI/UX team covers product & app interfaces, UX audits, user flows, design systems and interactive prototypes - researched, tested and developer-ready."+BRIEF},
+     a:"Our product design team covers app & product interfaces, UX audits, user flows, design systems and interactive prototypes - researched, tested and ready for developers."+BRIEF},
     {k:['ai','automation','chatbot','bot','workflow','machine learning','gpt','artificial'],
-     a:"We build practical AI: chatbots and assistants (like me!), workflow automation, AI content/design pipelines and custom AI tools wired into your business."+BRIEF},
+     a:"We build practical AI - chatbots and assistants (you're talking to one!), workflow automation, AI content pipelines and custom tools wired into your business. No hype, just hours saved."+BRIEF},
     {k:['marketing','seo','ads','advertis','growth','social media','google ads','meta ads','email marketing','funnel'],
-     a:"Growth that compounds: SEO & content strategy, paid ads on Google & Meta, email funnels, and analytics with clear reporting."+BRIEF},
+     a:"Growth that compounds: SEO & content strategy, paid ads on Google & Meta, email funnels and clear analytics reporting - so you always know what's working."+BRIEF},
     {k:['video','motion','animation','explainer','reel','film'],
-     a:"We produce explainer & product videos, motion graphics, social video content and animated presentations - motion that makes brands move."+BRIEF},
+     a:"We produce explainer & product videos, motion graphics, social content and animated presentations - motion that makes brands move."+BRIEF},
     {k:['content','copy','copywriting','blog','writing','words','messaging'],
-     a:"Sharp, on-brand words: website & landing copy, brand voice & messaging, blog/SEO content and campaign copy."+BRIEF},
+     a:"Sharp, on-brand words: website & landing copy, brand voice & messaging, blog/SEO content and campaign copy that actually sells the work."+BRIEF},
     {k:['pitch','deck','presentation','powerpoint','ppt','slides','investor','fundrais'],
-     a:"Presentation design is where SkiFi started - via <a href='https://skifidesigns.com' target='_blank' rel='noopener'>SkiFi Designs</a>, founders using our decks have raised $150M+. It's one of nine services we offer today, from investor decks to sales decks and slide systems."+BRIEF},
+     a:"Presentations are where SkiFi started - via <a href='https://skifidesigns.com' target='_blank' rel='noopener'>SkiFi Designs</a>, founders using our decks have raised <b>$150M+</b>. Today it's one of nine services: investor decks, sales decks, slide systems and redesigns."+BRIEF},
     {k:['price','pricing','cost','how much','charge','budget','quote','rates','fee'],
-     a:"Every project is quoted individually based on scope - fixed quotes, no hourly surprises. Send a rough brief to "+MAIL+" and you'll have an exact quote within 24 hours, or "+CAL+" and we'll scope it together."},
+     a:"Every project gets a custom fixed quote based on its scope - no hourly surprises, and you'll have it <b>within 24 hours</b> of sharing a brief. Email "+MAIL+", or better: "+CAL_BTN},
     {k:['book','meeting','schedule','calendly','appointment','call with','discovery call','consultation'],
-     a:"Easiest way: "+CAL+" - free, no obligation, and you'll leave with a plan even if you don't hire us."},
+     a:"Easiest way to move forward - it's free, no obligation, and you'll leave with a plan even if you don't hire us:<br>"+CAL_BTN},
     {k:['process','how do you work','steps','workflow','methodology','start a project','get started','onboard','begin'],
-     a:"Five steps: <b>Discover</b> (goals & market) → <b>Define</b> (scope + fixed quote) → <b>Design</b> (iterate until right) → <b>Build</b> (ship on schedule) → <b>Grow</b> (optimise after launch). Starting is easy - "+CAL+" or email "+MAIL+"."},
+     a:"Our five-step rhythm:<br>1️⃣ <b>Discover</b> - goals, audience, market<br>2️⃣ <b>Define</b> - scope + fixed quote<br>3️⃣ <b>Design</b> - iterate until it's right<br>4️⃣ <b>Build</b> - ship on schedule<br>5️⃣ <b>Grow</b> - optimise after launch<br>Starting is easy: "+CAL+" or email "+MAIL+"."},
     {k:['time','timeline','turnaround','how long','deadline','fast','urgent','delivery'],
-     a:"Typical timelines: logos & brand identities 2-4 weeks, websites 2-6 weeks, presentations 3-7 business days, redesigns 2-3 days. Retainer clients get 48-hour priority turnarounds. On a tight deadline? "+CAL+" and we'll tell you honestly what's possible."},
+     a:"Typical timelines:<br>◆ Logos & brand identities: 2-4 weeks<br>◆ Websites: 2-6 weeks<br>◆ Presentations: 3-7 business days<br>◆ Redesigns: 2-3 days<br>Retainer clients get 48-hour priority. On a tight deadline? Ask - we're honest about what's possible."},
     {k:['retainer','engagement','monthly','dedicated team','hire','subscription','ongoing'],
-     a:"Three ways to work with us: <b>Fixed Project</b> (defined scope, fixed quote), <b>Monthly Retainer</b> (priority 48h turnarounds, flexible credits across all services) or a <b>Dedicated Team</b> embedded with yours. If you're weighing options, "+CAL+" and we'll find the right fit."},
+     a:"Three ways to work with us:<br>◆ <b>Fixed Project</b> - defined scope, fixed quote<br>◆ <b>Monthly Retainer</b> - priority 48h turnarounds, flexible credits across all services<br>◆ <b>Dedicated Team</b> - embedded with yours, US + India coverage<br>Not sure which fits? "+CAL_BTN},
     {k:['revision','changes','edit','iterations','not happy','redo'],
-     a:"Revision rounds are built into every project scope - we iterate until it's unmistakably right, and you'll know exactly how many rounds are included before we start."},
+     a:"Revision rounds are built into every project scope - we iterate until it's unmistakably right, and you'll know exactly what's included before we start. No surprises."},
     {k:['where','location','office','based','address','wyoming','kerala','india','usa','america','kozhik','calicut','sheridan'],
-     a:"Two hubs, one team: <b>SKIFI GROUP LLC</b> in Sheridan, Wyoming (USA) and <b>SKIFI CREATIVE HUB LLP</b> in Kozhikkode, Kerala (India) - giving clients near-24/7 coverage across timezones."},
+     a:"Two hubs, one team:<br>🇺🇸 <b>SKIFI GROUP LLC</b> - Sheridan, Wyoming, USA<br>🇮🇳 <b>SKIFI CREATIVE HUB LLP</b> - Kozhikkode, Kerala, India<br>That spread gives clients near-24/7 momentum across timezones."},
     {k:['language','malayalam','hindi','arabic','speak','english'],
-     a:"You can work with us in <b>English, Malayalam, Hindi or Arabic</b> - whichever you're most comfortable in."},
-    {k:['available','availability','hours','open','when','respond','response time','reply','online'],
-     a:"We're reachable <b>24/7 on "+WA+"</b> ("+PHONE_DISPLAY+") and typically reply within a few hours - often much faster. Email works too: "+MAIL+"."},
+     a:"You can work with us in <b>English, Malayalam, Hindi or Arabic</b> - whichever feels most comfortable."},
+    {k:['available','availability','hours','open','when','respond','response time','reply','online','contact','email','phone','call','whatsapp','human','person','talk to','number','reach','support','agent','representative'],
+     a:"We're reachable <b>24/7</b> and typically reply within a few hours - often much faster. Email works too: "+MAIL+"."+WA_BTN},
     {k:['industry','industries','niche','saas','fintech','startup','restaurant','clinic','real estate','education'],
-     a:"We've shipped work for SaaS, fintech, edtech, healthtech, eCommerce & DTC, restaurants, retail, real estate and more - from first-time founders to publicly traded brands in 30+ countries."+BRIEF},
+     a:"We've shipped work for SaaS, fintech, edtech, healthtech, eCommerce & DTC, restaurants, retail, real estate and more - from first-time founders to publicly traded brands across 30+ countries."+BRIEF},
     {k:['tech','stack','tools','technologies','react','nextjs','framework'],
-     a:"Design in Figma and Adobe CC; builds on WordPress, Shopify, Webflow or fully custom (React/Next.js and modern stacks); motion in After Effects; plus AI tooling where it genuinely helps. We pick the stack that fits the project, not the other way around."},
+     a:"Design in Figma & Adobe CC; builds on WordPress, Shopify, Webflow or fully custom (React/Next.js and modern stacks); motion in After Effects; plus AI tooling where it genuinely helps. We pick the stack that fits the project - never the other way around."},
     {k:['support','maintenance','after launch','warranty','post launch','update my site'],
      a:"We don't disappear after launch - post-launch support, maintenance and growth retainers keep your site, store or product improving month after month."},
     {k:['group','brands','nehtar','dasthar','skacer','idrop','skifi designs','other companies'],
-     a:"SkiFi Group builds and operates its own brands too - <a href='https://skifidesigns.com' target='_blank' rel='noopener'>SkiFi Designs</a>, SkiFi Solutions, <a href='https://idropdigital.com' target='_blank' rel='noopener'>iDrop</a>, Dasthar, Skacer and Nehtar - with more on the way. Running real businesses keeps our client work honest."},
+     a:"SkiFi Group builds and runs its own brands too: <a href='https://skifidesigns.com' target='_blank' rel='noopener'>SkiFi Designs</a>, SkiFi Solutions, <a href='https://idropdigital.com' target='_blank' rel='noopener'>iDrop</a>, Dasthar, Skacer and Nehtar - with more coming. Running real businesses keeps our client work honest."},
     {k:['portfolio','work','examples','case stud','clients','past project','sample','review','testimonial','rating'],
-     a:"2,700+ projects for 150+ clients across 30+ countries - scroll down to the reviews on this page, see live work at <a href='https://skifidesigns.com' target='_blank' rel='noopener'>skifidesigns.com</a>, or ask us for samples in your industry."+BRIEF},
+     a:"2,700+ projects for 150+ clients across 30+ countries. Scroll down for real client reviews on this page, browse <a href='https://skifidesigns.com' target='_blank' rel='noopener'>skifidesigns.com</a> for live work, or ask us for samples in your industry."+BRIEF},
     {k:['why skifi','why you','different','better','competitors','choose'],
-     a:"Three reasons clients stay: we <b>run our own brands</b> so we build like owners, one senior 20-person team covers <b>strategy through shipping</b> (no hand-offs), and US + India hubs mean <b>near-24/7 momentum</b>. And the results - $150M+ raised on our work - speak for themselves."+BRIEF},
+     a:"Three honest reasons clients stay:<br>◆ We <b>run our own brands</b>, so we build like owners<br>◆ One senior team covers <b>strategy → shipping</b> - no hand-offs<br>◆ US + India hubs = <b>near-24/7 momentum</b><br>And the results - $150M+ raised on our work - speak for themselves."+BRIEF},
     {k:['career','job','hiring','intern','work with you','vacancy','join'],
      a:"We're always happy to meet great designers, developers and marketers. Send your portfolio to "+MAIL+"."},
     {k:['payment','pay','invoice','refund','method','upi','paypal','stripe'],
-     a:"We support standard international payments (cards, transfers) and Indian methods for local clients. Terms and milestones are agreed upfront with your fixed quote."},
+     a:"We support standard international payments (cards, transfers) and Indian methods for local clients. Terms and milestones are agreed upfront with your fixed quote - everything in writing."},
     {k:['thank','thanks','great','awesome','perfect','nice','cool','ok','okay','good'],
-     a:"Anytime! 😊 Ask me anything else - or if you're ready, "+CAL+" and let's make something."},
+     a:"Anytime! 😊 Ask me anything else - or if you're ready to build, "+CAL+"."},
     {k:['bye','goodbye','see you','later'],
-     a:"Bye! 👋 Come back whenever you're ready to build something."}
+     a:"Bye! 👋 Come back whenever you're ready to build something great."}
   ];
-  const FALLBACK="Good question - I want you to get a proper answer rather than a guess. Please call or "+WA+" our team at "+TEL+" and they'll sort you out right away. You can also email "+MAIL+".";
+  const FALLBACK="Good question - I'd rather connect you with the team than guess. They reply fast, 24/7:"+WA_BTN;
   const fab=document.getElementById('chatFab'),panel=document.getElementById('chatPanel'),
         msgs=document.getElementById('chatMsgs'),input=document.getElementById('chatInput'),
         send=document.getElementById('chatSend'),chips=document.getElementById('chatChips');
@@ -895,7 +912,7 @@ if(fine&&!noMotion){
   fab.addEventListener('click',()=>{
     panel.classList.toggle('open');fab.classList.toggle('open');
     if(panel.classList.contains('open')){
-      if(!opened){opened=true;botSay("Hi! I'm Skagent, the SkiFi AI assistant 🤖 - we're a full-stack design studio covering branding, websites, apps, stores, marketing, video and more. Ask me anything, or tell me what you're building.");}
+      if(!opened){opened=true;botSay("Hi! I'm Skagent, the SkiFi AI assistant 🤖 We're a full-stack design studio - branding, websites, apps, stores, marketing, video and more. Ask me anything, or just tell me what you're building.");}
       setTimeout(()=>input.focus(),350);
     }
   });
@@ -903,7 +920,7 @@ if(fine&&!noMotion){
   function botSay(html){el('msg bot',html)}
   function userSay(text){const d=document.createElement('div');d.className='msg user';d.textContent=text;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight}
   function answer(q){
-    const t=' '+q.toLowerCase().trim()+' ';
+    const t=' '+q.toLowerCase().replace(/[?!.,;:]/g,' ').replace(/\s+/g,' ').trim()+' ';
     let best=null,bestScore=0;
     for(const item of KB){
       let s=0;
