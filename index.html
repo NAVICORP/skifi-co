@@ -325,6 +325,7 @@ footer>.wrap{position:relative;z-index:1}
   box-shadow:0 6px 16px -6px rgba(42,122,254,.55);transition:transform .2s;
 }
 .cal-btn:hover{transform:translateY(-2px)}
+.cal-btn svg{width:15px;height:15px;flex-shrink:0}
 .typing{display:inline-flex;gap:4px;padding:14px 16px}
 .typing i{width:7px;height:7px;border-radius:50%;background:var(--ink-faint);animation:tbounce 1.2s infinite}
 .typing i:nth-child(2){animation-delay:.15s}
@@ -834,7 +835,8 @@ if(fine&&!noMotion){
 (function(){
   const WA_ICON='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.91-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2-1.42.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.35Zm-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 9.88 9.9c0 5.44-4.44 9.87-9.89 9.87Zm8.41-18.28A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.48-8.4Z"/></svg>';
   const WA_BTN='<br><a class="wa-btn" href="https://wa.me/917827087878?text=Hi%20SkiFi!" target="_blank" rel="noopener">'+WA_ICON+'Chat on WhatsApp</a>';
-  const CAL_BTN='<a class="cal-btn" href="https://calendly.com/contact-skifidesigns/30min" target="_blank" rel="noopener">📅 Book a free call</a>';
+  const CAL_ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>';
+  const CAL_BTN='<a class="cal-btn" href="https://calendly.com/contact-skifidesigns/30min" target="_blank" rel="noopener">'+CAL_ICON+'Book a free call</a>';
   const MAIL='<a href="mailto:contact@skifidesigns.com">contact@skifidesigns.com</a>';
   const CAL='<a href="https://calendly.com/contact-skifidesigns/30min" target="_blank" rel="noopener">book a free 30-minute call</a>';
   const BRIEF=' What are you building? Tell me a little and I\'ll point you the right way.';
