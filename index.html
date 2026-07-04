@@ -245,13 +245,19 @@ footer>.wrap{position:relative;z-index:1}
 .foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:11px}
 .foot-grid ul a{color:var(--ink-soft);font-size:.92rem;transition:color .2s}
 .foot-grid ul a:hover{color:var(--blue)}
-.socials{display:flex;gap:10px;margin-top:20px}
+.socials{display:flex;gap:12px;margin-top:22px}
 .socials a{
-  width:38px;height:38px;border-radius:50%;border:1px solid var(--line-strong);
-  display:grid;place-items:center;color:var(--ink-soft);transition:color .2s,border-color .2s,transform .2s;
+  position:relative;width:42px;height:42px;border-radius:14px;
+  background:color-mix(in srgb,var(--blue) 8%,var(--card));
+  border:1px solid rgba(42,122,254,.25);
+  display:grid;place-items:center;color:var(--ink);
+  transition:transform .25s cubic-bezier(.2,.9,.3,1.4),box-shadow .25s,background .25s,border-color .25s,color .25s;
 }
-.socials a:hover{color:var(--blue);border-color:var(--blue);transform:translateY(-3px)}
-.socials svg{width:17px;height:17px}
+.socials a:hover{transform:translateY(-4px) scale(1.06);color:#fff;border-color:transparent}
+.socials a.s-ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);box-shadow:0 12px 24px -8px rgba(220,39,67,.5)}
+.socials a.s-fv:hover{background:#1DBF73;box-shadow:0 12px 24px -8px rgba(29,191,115,.55)}
+.socials a.s-li:hover{background:#0A66C2;box-shadow:0 12px 24px -8px rgba(10,102,194,.55)}
+.socials svg{width:19px;height:19px}
 .foot-entities{display:flex;flex-direction:column;gap:18px}
 .entity{border-left:2px solid var(--blue);padding-left:14px}
 .entity b{display:block;font-size:.85rem;letter-spacing:.04em}
@@ -333,15 +339,38 @@ footer>.wrap{position:relative;z-index:1}
 }
 
 /* ---------- MOBILE POLISH ---------- */
+@media(max-width:820px){
+  /* flatten 3D card depth on touch devices - fixes iOS blurry text & layout gaps */
+  .sol-grid,.models,.steps,.t-grid{perspective:none}
+  .sol-card,.model,.step,.t-card{transform-style:flat}
+  .sol-card>*{transform:none}
+}
 @media(max-width:640px){
-  .hero{padding:140px 0 80px}
-  section{padding:72px 0}
-  .hero-actions .btn{flex:1 1 auto}
-  .sec-head{margin-bottom:36px}
+  .hero{padding:128px 0 72px}
+  .hero h1{font-size:clamp(2.1rem,8.6vw,2.9rem);max-width:none}
+  .hero p.lede{font-size:1rem}
+  section{padding:64px 0}
+  .hero-actions{margin-top:30px}
+  .hero-actions .btn{flex:1 1 auto;padding:14px 22px}
+  .sec-head{margin-bottom:32px}
+  .sec-head h2{font-size:1.75rem}
+  .sol-card{padding:26px 22px;gap:13px}
+  .sol-icon{width:46px;height:46px;border-radius:12px}
+  .sol-icon svg{width:21px;height:21px}
+  .sol-card h3{font-size:1.15rem}
+  .model{padding:30px 24px}
+  .t-card{padding:26px 22px}
+  .foot-grid{gap:34px;margin-bottom:40px}
+  footer{padding:52px 0 30px}
+  .cta-band p{margin-bottom:28px}
+  .cta-band .btn{width:100%}
 }
 @media(max-width:420px){
-  .steps{grid-template-columns:1fr 1fr;gap:12px}
-  .step{padding:20px 16px}
+  .steps{grid-template-columns:1fr 1fr;gap:10px}
+  .step{padding:18px 15px}
+  .step h3{font-size:.98rem}
+  .step p{font-size:.8rem}
+  .wrap{padding:0 18px}
 }
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
@@ -364,7 +393,7 @@ footer>.wrap{position:relative;z-index:1}
       <a href="#process">Process</a>
       <a href="#engagement">Engagement</a>
       <a href="https://skifidesigns.com" target="_blank" rel="noopener">SkiFi Designs</a>
-      <a class="nav-cta" href="https://calendly.com/contact-skifidesigns/30min" target="_blank" rel="noopener">Get in touch</a>
+      <a href="https://calendly.com/contact-skifidesigns/30min" target="_blank" rel="noopener">Get in touch</a>
     </div>
     <div style="display:flex;gap:12px;align-items:center">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -671,14 +700,14 @@ footer>.wrap{position:relative;z-index:1}
         <img class="logo-dark" src="assets/logo-on-dark.png" alt="SkiFi">
         <p>A full-stack digital studio building brands, websites, stores and products for clients worldwide.</p>
         <div class="socials">
-          <a href="https://instagram.com/skifidesigns" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+          <a class="s-ig" href="https://instagram.com/skifidesigns" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 0 0-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.8.72 1.47 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84Zm0 10.15A4 4 0 1 1 16 12a4 4 0 0 1-4 3.99Zm7.85-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44Z"/></svg>
           </a>
-          <a href="https://www.fiverr.com/skifidesigns" target="_blank" rel="noopener" aria-label="Fiverr">
-            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.6" stroke="currentColor" stroke-width="1.7"/><text x="12" y="15.8" text-anchor="middle" font-size="10.5" font-weight="700" fill="currentColor" font-family="Outfit,sans-serif">fi</text></svg>
+          <a class="s-fv" href="https://www.fiverr.com/skifidesigns" target="_blank" rel="noopener" aria-label="Fiverr">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.25 16.25v-9h-9v-.5a2 2 0 0 1 2-2h2.25V1h-2.25A5.75 5.75 0 0 0 3.5 6.75v.5H1v3.75h2.5v5.25H1V20h9.25v-3.75H7.25v-5.25h5.25v5.25h-2.5V20h9.25v-3.75Z"/><circle cx="18.6" cy="3.4" r="2.4"/></svg>
           </a>
-          <a href="https://in.linkedin.com/company/skifi" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02 3.5 1.13 1 2.5 1s2.48 1.12 2.48 2.5ZM.5 8h4v15h-4V8Zm7.5 0h3.8v2.05h.06c.53-1 1.82-2.05 3.75-2.05 4.01 0 4.75 2.64 4.75 6.07V23h-4v-8.1c0-1.93-.03-4.42-2.7-4.42-2.7 0-3.11 2.1-3.11 4.28V23H8V8Z"/></svg>
+          <a class="s-li" href="https://in.linkedin.com/company/skifi" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
           </a>
         </div>
       </div>
@@ -701,7 +730,7 @@ footer>.wrap{position:relative;z-index:1}
           <li><a href="#solutions">Solutions</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#engagement">Engagement</a></li>
-          <li><a href="tel:+917827087878">+91 78270 87878</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
           <li><a href="mailto:contact@skifidesigns.com">Contact</a></li>
         </ul>
       </div>
@@ -785,59 +814,75 @@ if(fine&&!noMotion){
     card.addEventListener('mouseleave',()=>{card.style.transform='';card.style.transition=''});
   });
 }
-// ---------- AI Assistant ----------
+// ---------- AI Assistant : Skagent ----------
 (function(){
   const PHONE_DISPLAY='+91 78270 87878';
   const TEL='<a href="tel:+917827087878">'+PHONE_DISPLAY+'</a>';
   const WA='<a href="https://wa.me/917827087878" target="_blank" rel="noopener">WhatsApp</a>';
   const MAIL='<a href="mailto:contact@skifidesigns.com">contact@skifidesigns.com</a>';
+  const CAL='<a href="https://calendly.com/contact-skifidesigns/30min" target="_blank" rel="noopener">book a free 30-minute call</a>';
+  const BRIEF=' Tell me a bit about your project and I\'ll point you in the right direction.';
   const KB=[
-    {k:['hello','hi ','hii','hey','salam','assalam','good morning','good afternoon','good evening','hai'],
-     a:"Hey there! 👋 Welcome to SkiFi Solutions. Ask me about our services, pricing, timelines, process - anything."},
-    {k:['what do you do','services','service','what can you','solutions','offer','capabilities','help me with'],
-     a:"We're a full-stack digital studio with nine solution lines: pitch deck & presentation design, brand identity, web design & development, eCommerce, UI/UX & product design, AI & automation, digital marketing & SEO, video & motion graphics, and content & copywriting. Which one are you curious about?"},
-    {k:['pitch','deck','presentation','powerpoint','ppt','slides','investor','fundrais','raise'],
-     a:"Pitch decks are our flagship craft, handled by <a href='https://skifidesigns.com' target='_blank' rel='noopener'>SkiFi Designs</a>. Founders using our decks have raised $150M+ across 30+ countries. Share your brief and you'll get a tailored quote within 24 hours, with 3-7 business day turnarounds."},
-    {k:['price','pricing','cost','how much','charge','budget','quote','rates','fee'],
-     a:"We work on fixed quotes - no hourly surprises. Every project is priced individually based on its scope, so you only pay for what you actually need. Email a rough brief to "+MAIL+" and you'll get an exact quote within 24 hours."},
-    {k:['website','web design','web dev','landing','webapp','web app','wordpress','app develop','application'],
-     a:"We design and build marketing sites, landing pages, custom web apps and CMS builds (WordPress or headless) - fast, beautiful and SEO-ready. Most sites ship in 2-6 weeks."},
-    {k:['ecommerce','e-commerce','store','shopify','woocommerce','online shop','sell online','shop'],
-     a:"eCommerce is home turf - we run our own stores (Nehtar, Dasthar), so we build yours like owners: Shopify/WooCommerce builds, store design, CRO, payments and shipping setup."},
-    {k:['brand','logo','identity','rebrand','guidelines','packaging'],
-     a:"We build brands end to end: naming, logo and visual identity, brand guidelines, design systems, packaging and rebrands."},
-    {k:['ui','ux','product design','interface','figma','prototype','design system','user experience'],
-     a:"Our UI/UX team covers product & app UI, UX audits, user flows, design systems and interactive prototypes - researched, tested and dev-ready."},
+    {k:['hello','hi ','hii','hey','salam','assalam','good morning','good afternoon','good evening','hai '],
+     a:"Hey there! 👋 Welcome to SkiFi Solutions - we design and build pretty much everything digital: brands, websites, apps, stores, videos, presentations and more. What are you working on?"},
+    {k:['what do you do','services','service','what can you','solutions','offer','capabilities','help me with','everything'],
+     a:"We're a full-stack design & digital studio. Nine solution lines under one roof: <b>brand identity</b>, <b>web design & development</b>, <b>eCommerce</b>, <b>UI/UX & product design</b>, <b>AI & automation</b>, <b>digital marketing & SEO</b>, <b>video & motion graphics</b>, <b>content & copywriting</b>, and <b>presentation design</b>. Most clients start with one and end up using several."+BRIEF},
+    {k:['about','who are you','company','team','how many people','experience','years','founded','story'],
+     a:"SkiFi has been building for <b>7+ years</b> with a <b>20-person team</b> of designers, developers and marketers working from Sheridan, Wyoming (USA) and Kozhikkode, Kerala (India). The scoreboard so far: <b>2,700+ projects</b>, <b>150+ clients</b> in <b>30+ countries</b>, and $150M+ raised by founders using our work."},
+    {k:['brand','logo','identity','rebrand','guidelines','packaging','visual identity'],
+     a:"Branding is one of our favourite things to build: naming, logo & visual identity, brand guidelines, design systems, packaging and full rebrands. We design brands meant to be remembered - and we run our own, so we design like owners."+BRIEF},
+    {k:['website','web design','web dev','landing','webapp','web app','wordpress','app develop','application','site'],
+     a:"We design and develop marketing sites, landing pages, custom web apps and CMS builds (WordPress or headless) - fast, beautiful, SEO-ready and conversion-focused. This very site is our own work. Most websites ship in 2-6 weeks."+BRIEF},
+    {k:['ecommerce','e-commerce','store','shopify','woocommerce','online shop','sell online','shop','dropship'],
+     a:"eCommerce is home turf - we run our own stores, so we build yours like owners: Shopify/WooCommerce builds, store design, conversion optimisation, payments and shipping setup."+BRIEF},
+    {k:['ui','ux','product design','interface','figma','prototype','design system','user experience','mobile app'],
+     a:"Our UI/UX team covers product & app interfaces, UX audits, user flows, design systems and interactive prototypes - researched, tested and developer-ready."+BRIEF},
     {k:['ai','automation','chatbot','bot','workflow','machine learning','gpt','artificial'],
-     a:"We build practical AI: chatbots and assistants (like me!), workflow automation, AI content/design pipelines and custom AI tools wired into your business."},
+     a:"We build practical AI: chatbots and assistants (like me!), workflow automation, AI content/design pipelines and custom AI tools wired into your business."+BRIEF},
     {k:['marketing','seo','ads','advertis','growth','social media','google ads','meta ads','email marketing','funnel'],
-     a:"Growth that compounds: SEO & content strategy, paid ads on Google & Meta, email funnels and analytics with clear reporting."},
+     a:"Growth that compounds: SEO & content strategy, paid ads on Google & Meta, email funnels, and analytics with clear reporting."+BRIEF},
     {k:['video','motion','animation','explainer','reel','film'],
-     a:"We produce explainer & product videos, motion graphics, social video content and animated presentations."},
+     a:"We produce explainer & product videos, motion graphics, social video content and animated presentations - motion that makes brands move."+BRIEF},
     {k:['content','copy','copywriting','blog','writing','words','messaging'],
-     a:"Sharp, on-brand words: website & landing copy, pitch narratives, blog/SEO content and brand voice & messaging."},
+     a:"Sharp, on-brand words: website & landing copy, brand voice & messaging, blog/SEO content and campaign copy."+BRIEF},
+    {k:['pitch','deck','presentation','powerpoint','ppt','slides','investor','fundrais'],
+     a:"Presentation design is where SkiFi started - via <a href='https://skifidesigns.com' target='_blank' rel='noopener'>SkiFi Designs</a>, founders using our decks have raised $150M+. It's one of nine services we offer today, from investor decks to sales decks and slide systems."+BRIEF},
+    {k:['price','pricing','cost','how much','charge','budget','quote','rates','fee'],
+     a:"Every project is quoted individually based on scope - fixed quotes, no hourly surprises. Send a rough brief to "+MAIL+" and you'll have an exact quote within 24 hours, or "+CAL+" and we'll scope it together."},
     {k:['book','meeting','schedule','calendly','appointment','call with','discovery call','consultation'],
-     a:"You can book a free meeting with the team right now: <a href='https://calendly.com/contact-skifidesigns/30min' target='_blank' rel='noopener'>pick a slot on Calendly</a> - or just hit the 'Get in touch' button in the menu."},
-    {k:['process','how do you work','steps','workflow','methodology','start a project','get started','onboard'],
-     a:"Five steps: <b>Discover</b> (goals & market) → <b>Define</b> (scope + fixed quote) → <b>Design</b> (iterate until right) → <b>Build</b> (ship on schedule) → <b>Grow</b> (optimise post-launch). Starting is easy - email "+MAIL+"."},
+     a:"Easiest way: "+CAL+" - free, no obligation, and you'll leave with a plan even if you don't hire us."},
+    {k:['process','how do you work','steps','workflow','methodology','start a project','get started','onboard','begin'],
+     a:"Five steps: <b>Discover</b> (goals & market) → <b>Define</b> (scope + fixed quote) → <b>Design</b> (iterate until right) → <b>Build</b> (ship on schedule) → <b>Grow</b> (optimise after launch). Starting is easy - "+CAL+" or email "+MAIL+"."},
     {k:['time','timeline','turnaround','how long','deadline','fast','urgent','delivery'],
-     a:"Typical timelines: deck redesigns 2-3 days, full decks 3-7 business days, brand identities 2-4 weeks, websites 2-6 weeks. Retainer clients get 48-hour priority turnarounds. On a tight deadline? Tell us - we're honest about what's possible."},
+     a:"Typical timelines: logos & brand identities 2-4 weeks, websites 2-6 weeks, presentations 3-7 business days, redesigns 2-3 days. Retainer clients get 48-hour priority turnarounds. On a tight deadline? "+CAL+" and we'll tell you honestly what's possible."},
     {k:['retainer','engagement','monthly','dedicated team','hire','subscription','ongoing'],
-     a:"Three ways to work with us: <b>Fixed Project</b> (defined scope, fixed quote), <b>Monthly Retainer</b> (priority 48h turnarounds, flexible credits) or a <b>Dedicated Team</b> embedded with yours."},
+     a:"Three ways to work with us: <b>Fixed Project</b> (defined scope, fixed quote), <b>Monthly Retainer</b> (priority 48h turnarounds, flexible credits across all services) or a <b>Dedicated Team</b> embedded with yours. If you're weighing options, "+CAL+" and we'll find the right fit."},
+    {k:['revision','changes','edit','iterations','not happy','redo'],
+     a:"Revision rounds are built into every project scope - we iterate until it's unmistakably right, and you'll know exactly how many rounds are included before we start."},
     {k:['where','location','office','based','address','wyoming','kerala','india','usa','america','kozhik','calicut','sheridan'],
-     a:"Two hubs, one team: <b>SKIFI GROUP LLC</b> in Sheridan, Wyoming (USA) and <b>SKIFI CREATIVE HUB LLP</b> in Kozhikkode, Kerala (India) - giving clients near-24/7 coverage."},
-    {k:['group','brands','nehtar','dasthar','skacer','idrop','skifi designs','portfolio of brands','other companies'],
-     a:"SkiFi Group builds and operates its own brands: <a href='https://skifidesigns.com' target='_blank' rel='noopener'>SkiFi Designs</a>, SkiFi Solutions, <a href='https://idropdigital.com' target='_blank' rel='noopener'>iDrop</a>, Dasthar, Skacer and Nehtar - with more on the way."},
+     a:"Two hubs, one team: <b>SKIFI GROUP LLC</b> in Sheridan, Wyoming (USA) and <b>SKIFI CREATIVE HUB LLP</b> in Kozhikkode, Kerala (India) - giving clients near-24/7 coverage across timezones."},
+    {k:['language','malayalam','hindi','arabic','speak','english'],
+     a:"You can work with us in <b>English, Malayalam, Hindi or Arabic</b> - whichever you're most comfortable in."},
+    {k:['available','availability','hours','open','when','respond','response time','reply','online'],
+     a:"We're reachable <b>24/7 on "+WA+"</b> ("+PHONE_DISPLAY+") and typically reply within a few hours - often much faster. Email works too: "+MAIL+"."},
+    {k:['industry','industries','niche','saas','fintech','startup','restaurant','clinic','real estate','education'],
+     a:"We've shipped work for SaaS, fintech, edtech, healthtech, eCommerce & DTC, restaurants, retail, real estate and more - from first-time founders to publicly traded brands in 30+ countries."+BRIEF},
+    {k:['tech','stack','tools','technologies','react','nextjs','framework'],
+     a:"Design in Figma and Adobe CC; builds on WordPress, Shopify, Webflow or fully custom (React/Next.js and modern stacks); motion in After Effects; plus AI tooling where it genuinely helps. We pick the stack that fits the project, not the other way around."},
+    {k:['support','maintenance','after launch','warranty','post launch','update my site'],
+     a:"We don't disappear after launch - post-launch support, maintenance and growth retainers keep your site, store or product improving month after month."},
+    {k:['group','brands','nehtar','dasthar','skacer','idrop','skifi designs','other companies'],
+     a:"SkiFi Group builds and operates its own brands too - <a href='https://skifidesigns.com' target='_blank' rel='noopener'>SkiFi Designs</a>, SkiFi Solutions, <a href='https://idropdigital.com' target='_blank' rel='noopener'>iDrop</a>, Dasthar, Skacer and Nehtar - with more on the way. Running real businesses keeps our client work honest."},
     {k:['portfolio','work','examples','case stud','clients','past project','sample','review','testimonial','rating'],
-     a:"We've delivered 2,700+ projects for 150+ clients across 30+ countries, including decks behind $150M+ in funding. See live work at <a href='https://skifidesigns.com' target='_blank' rel='noopener'>skifidesigns.com</a>, or ask us for samples in your industry."},
-    {k:['contact','email','phone','call','whatsapp','human','person','talk to','number','reach','support','agent','representative'],
-     a:"Here's the team, directly: 📞 "+TEL+" · "+WA+" · ✉️ "+MAIL+". They usually reply within the hour during business time. You can also find us on <a href='https://instagram.com/skifidesigns' target='_blank' rel='noopener'>Instagram</a>, <a href='https://www.fiverr.com/skifidesigns' target='_blank' rel='noopener'>Fiverr</a> and <a href='https://in.linkedin.com/company/skifi' target='_blank' rel='noopener'>LinkedIn</a>."},
+     a:"2,700+ projects for 150+ clients across 30+ countries - scroll down to the reviews on this page, see live work at <a href='https://skifidesigns.com' target='_blank' rel='noopener'>skifidesigns.com</a>, or ask us for samples in your industry."+BRIEF},
+    {k:['why skifi','why you','different','better','competitors','choose'],
+     a:"Three reasons clients stay: we <b>run our own brands</b> so we build like owners, one senior 20-person team covers <b>strategy through shipping</b> (no hand-offs), and US + India hubs mean <b>near-24/7 momentum</b>. And the results - $150M+ raised on our work - speak for themselves."+BRIEF},
     {k:['career','job','hiring','intern','work with you','vacancy','join'],
      a:"We're always happy to meet great designers, developers and marketers. Send your portfolio to "+MAIL+"."},
     {k:['payment','pay','invoice','refund','method','upi','paypal','stripe'],
-     a:"We support standard international payments (cards, transfers) and Indian methods for local clients. Terms are agreed upfront with your fixed quote."},
+     a:"We support standard international payments (cards, transfers) and Indian methods for local clients. Terms and milestones are agreed upfront with your fixed quote."},
     {k:['thank','thanks','great','awesome','perfect','nice','cool','ok','okay','good'],
-     a:"Anytime! 😊 Ask me anything else whenever you like."},
+     a:"Anytime! 😊 Ask me anything else - or if you're ready, "+CAL+" and let's make something."},
     {k:['bye','goodbye','see you','later'],
      a:"Bye! 👋 Come back whenever you're ready to build something."}
   ];
@@ -849,7 +894,7 @@ if(fine&&!noMotion){
   fab.addEventListener('click',()=>{
     panel.classList.toggle('open');fab.classList.toggle('open');
     if(panel.classList.contains('open')){
-      if(!opened){opened=true;botSay("Hi! I'm Skagent, the SkiFi AI assistant 🤖 - ask me about services, pricing, timelines or anything else. If I don't know something, I'll point you straight to the team.");}
+      if(!opened){opened=true;botSay("Hi! I'm Skagent, the SkiFi AI assistant 🤖 - we're a full-stack design studio covering branding, websites, apps, stores, marketing, video and more. Ask me anything, or tell me what you're building.");}
       setTimeout(()=>input.focus(),350);
     }
   });
@@ -1000,11 +1045,11 @@ if(fine&&!noMotion){
     // ---- DESIGN STUDIO OBJECT (right side) ----
     scene.add(new THREE.AmbientLight(0x8ab4ff,.6));
     var keyL=new THREE.DirectionalLight(0xffffff,.9);keyL.position.set(4,8,10);scene.add(keyL);
-    var SX=isMobile?0:7.6, SY=isMobile?5.4:.5, SZ=isMobile?-9:-2.2;
+    var SX=isMobile?0:7.6, SY=isMobile?6.2:.5, SZ=isMobile?-12:-2.2;
     var accentL=new THREE.PointLight(BLUE,1.8,30);accentL.position.set(SX-3,SY+4,4);scene.add(accentL);
     var studio=new THREE.Group();
     studio.position.set(SX,SY,SZ);
-    studio.scale.setScalar(isMobile?.75:1.4);
+    studio.scale.setScalar(isMobile?.55:1.4);
     world.add(studio);
 
     function roundedPanel(w,h,r){
