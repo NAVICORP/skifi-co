@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>SkiFi Solutions - Every Digital Solution Your Business Needs</title>
+<meta name="description" content="SkiFi Solutions is a full-stack digital studio - web design & development, branding, eCommerce, UI/UX, AI automation, marketing, video and content solutions.">
+<meta property="og:title" content="SkiFi Solutions - Every Digital Solution Your Business Needs">
+<meta property="og:description" content="Web, brand, commerce, product and AI solutions - designed and built by the team behind SkiFi Designs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://skifi.co">
+<meta property="og:image" content="https://skifi.co/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="SkiFi - Design. Develop. Deliver. Everything Your Brand Needs.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SkiFi Solutions - Every Digital Solution Your Business Needs">
+<meta name="twitter:description" content="Web, brand, commerce, product and AI solutions - designed and built by the team behind SkiFi Designs.">
+<meta name="twitter:image" content="https://skifi.co/og-image.jpg">
+<meta name="theme-color" content="#001436">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..700&display=swap" rel="stylesheet">
+<style>
+@font-face{
+  font-family:"Nohemi";
+  src:url("assets/fonts/Nohemi-SemiBold.woff2") format("woff2"),url("assets/fonts/Nohemi-SemiBold.ttf") format("truetype");
+  font-weight:600;font-style:normal;font-display:swap;
+}
+:root{
+  --navy:#001436;
+  --blue:#2A7AFE;
+  --bg:#f7f8fb;
+  --bg-alt:#ffffff;
+  --card:#ffffff;
+  --ink:#001436;
+  --ink-soft:rgba(0,20,54,.68);
+  --ink-faint:rgba(0,20,54,.42);
+  --line:rgba(0,20,54,.1);
+  --line-strong:rgba(0,20,54,.16);
+  --hero-bg:#001436;
+  --hero-ink:#f7f8fb;
+  --hero-soft:rgba(247,248,251,.66);
+  --shadow:0 20px 60px -24px rgba(0,20,54,.22);
+  --radius:20px;
+}
+[data-theme="dark"]{
+  --bg:#020b1d;
+  --bg-alt:#041129;
+  --card:#061631;
+  --ink:#eef2f9;
+  --ink-soft:rgba(238,242,249,.68);
+  --ink-faint:rgba(238,242,249,.4);
+  --line:rgba(238,242,249,.1);
+  --line-strong:rgba(238,242,249,.18);
+  --hero-bg:#020b1d;
+  --hero-ink:#eef2f9;
+  --hero-soft:rgba(238,242,249,.62);
+  --shadow:0 20px 60px -24px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg);transition:background .35s ease}
+body{
+  font-family:"Outfit",sans-serif;background:transparent;color:var(--ink);
+  line-height:1.6;transition:color .35s;overflow-x:hidden;
+}
+::selection{background:var(--blue);color:#fff}
+h1,h2,h3{font-family:"Nohemi","Outfit",sans-serif;font-weight:600;line-height:1.1;letter-spacing:-.015em}
+.mono{font-family:"Outfit",sans-serif;font-weight:600;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ---------- SITE-WIDE 3D BACKDROP ---------- */
+#bg3d{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+
+/* ---------- NAV ---------- */
+nav{
+  position:fixed;inset:0 0 auto 0;z-index:100;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo img{height:26px;width:auto}
+.nav-logo .logo-dark{display:none}
+[data-theme="dark"] .nav-logo .logo-light{display:none}
+[data-theme="dark"] .nav-logo .logo-dark{display:block}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:.92rem;font-weight:500;color:var(--ink-soft);transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-cta{background:var(--blue);color:#fff!important;padding:8px 18px;border-radius:100px;font-weight:600;font-size:.85rem!important;transition:transform .2s,box-shadow .2s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px -8px rgba(42,122,254,.6)}
+.theme-toggle{
+  width:34px;height:34px;border-radius:50%;border:1px solid var(--line-strong);background:var(--card);
+  cursor:pointer;display:grid;place-items:center;color:var(--ink);transition:border-color .2s,transform .2s;flex-shrink:0;
+}
+.theme-toggle:hover{border-color:var(--blue);transform:rotate(20deg)}
+.theme-toggle svg{width:15px;height:15px}
+.tt-moon{display:none}
+[data-theme="dark"] .tt-sun{display:none}
+[data-theme="dark"] .tt-moon{display:block}
+.menu-btn{display:none;background:none;border:none;color:var(--ink);cursor:pointer;padding:8px}
+@media(max-width:820px){
+  .nav-links{
+    position:fixed;top:72px;right:0;flex-direction:column;align-items:flex-start;background:var(--bg-alt);
+    border:1px solid var(--line);border-right:none;padding:28px;gap:20px;border-radius:20px 0 0 20px;
+    transform:translateX(110%);transition:transform .3s;box-shadow:var(--shadow);
+  }
+  .nav-links.open{transform:translateX(0)}
+  .menu-btn{display:block}
+}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;background:var(--hero-bg);color:var(--hero-ink);padding:180px 0 110px;overflow:hidden;transition:background .35s}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(900px 500px at 90% -10%,rgba(42,122,254,.3),transparent 60%),radial-gradient(600px 400px at 0% 120%,rgba(42,122,254,.14),transparent 55%);
+}
+.hero::after{
+  content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 80% at 50% 20%,#000 30%,transparent 75%);
+}
+.hero .wrap{position:relative;z-index:2}
+#hero3d{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.hero h1{font-size:clamp(2.5rem,6vw,4.4rem);font-weight:600;margin:0 0 22px;max-width:17ch;animation:rise .7s .15s both}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero p.lede{font-size:clamp(1rem,1.6vw,1.2rem);color:var(--hero-soft);max-width:58ch;animation:rise .7s .25s both}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:38px;animation:rise .7s .35s both}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;border-radius:100px;font-weight:600;font-size:.98rem;transition:transform .2s,box-shadow .2s,background .2s}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px -8px rgba(42,122,254,.55)}
+.btn-ghost{border:1px solid rgba(255,255,255,.22);color:var(--hero-ink)}
+.btn-ghost:hover{background:rgba(255,255,255,.08);transform:translateY(-2px)}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* ---------- SECTIONS ---------- */
+section{padding:100px 0;position:relative}
+section>.wrap{position:relative;z-index:1}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:52px;flex-wrap:wrap}
+.sec-head .mono{color:var(--blue)}
+.sec-head h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:600;margin-top:14px;max-width:22ch}
+.sec-head p{color:var(--ink-soft);max-width:44ch}
+
+/* ---------- SOLUTIONS GRID ---------- */
+.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;perspective:1400px}
+@media(max-width:980px){.sol-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.sol-grid{grid-template-columns:1fr}}
+.sol-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;
+  display:flex;flex-direction:column;gap:16px;position:relative;
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+  will-change:transform;transform-style:preserve-3d;
+}
+.sol-card>*{transform:translateZ(20px)}
+.sol-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(42,122,254,.45)}
+.sol-icon{
+  width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+  background:rgba(42,122,254,.1);border:1px solid rgba(42,122,254,.25);color:var(--blue);
+  transition:transform .35s ease,box-shadow .35s ease;
+}
+.sol-card:hover .sol-icon{transform:translateZ(46px) rotateY(-14deg) rotateX(8deg);box-shadow:0 14px 28px -10px rgba(42,122,254,.45)}
+.sol-icon svg{width:24px;height:24px}
+.sol-card h3{font-size:1.28rem;font-weight:600}
+.sol-card>p{color:var(--ink-soft);font-size:.93rem}
+.sol-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:2px}
+.sol-card li{display:flex;gap:10px;align-items:baseline;font-size:.9rem;color:var(--ink-soft)}
+.sol-card li::before{content:"◆";color:var(--blue);font-size:.55rem;flex-shrink:0;transform:translateY(-1px)}
+.card-link{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.9rem;color:var(--blue);margin-top:4px}
+
+/* ---------- PROCESS ---------- */
+.process{background:color-mix(in srgb,var(--bg-alt) 72%,transparent);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;counter-reset:step;perspective:1400px}
+@media(max-width:980px){.steps{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.steps{grid-template-columns:1fr 1fr}}
+.step{border:1px solid var(--line);border-radius:16px;padding:26px 22px;background:var(--card);position:relative;transition:border-color .3s,transform .3s;will-change:transform;transform-style:preserve-3d}
+.step:hover{border-color:rgba(42,122,254,.45);transform:translateY(-4px)}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:"Outfit",sans-serif;font-weight:600;font-size:.75rem;color:var(--blue);letter-spacing:.12em}
+.step h3{font-size:1.05rem;margin:12px 0 8px}
+.step p{font-size:.85rem;color:var(--ink-soft)}
+
+/* ---------- MODELS ---------- */
+.models{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;perspective:1400px}
+@media(max-width:900px){.models{grid-template-columns:1fr}}
+.model{
+  border:1px solid var(--line);border-radius:var(--radius);padding:38px 32px;background:var(--card);
+  position:relative;transition:transform .3s,box-shadow .3s,border-color .3s;will-change:transform;transform-style:preserve-3d;
+}
+.model:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.model.hot{border-color:var(--blue);border-width:2px}
+.model .flag{
+  position:absolute;top:-13px;left:32px;background:var(--blue);color:#fff;font-size:.68rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;
+}
+.model h3{font-size:1.3rem;margin-bottom:6px}
+.model .sub{color:var(--ink-faint);font-size:.86rem;margin-bottom:18px}
+.model ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.model li{display:flex;gap:10px;align-items:baseline;font-size:.92rem;color:var(--ink-soft)}
+.model li::before{content:"✓";color:var(--blue);font-weight:700;flex-shrink:0}
+
+/* ---------- TESTIMONIALS ---------- */
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;perspective:1400px}
+@media(max-width:980px){.t-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.t-grid{grid-template-columns:1fr}}
+.t-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px 30px;
+  display:flex;flex-direction:column;gap:16px;transition:transform .3s,box-shadow .3s,border-color .3s;
+  will-change:transform;transform-style:preserve-3d;
+}
+.t-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(42,122,254,.45)}
+.t-top{display:flex;align-items:center;gap:12px}
+.t-quote{color:rgba(42,122,254,.28);font-size:2.4rem;line-height:1;font-family:Georgia,serif;transform:translateY(6px)}
+.t-stars{color:var(--blue);font-size:1.05rem;letter-spacing:3px}
+.t-text{color:var(--ink-soft);font-size:.94rem;flex:1}
+.t-meta{border-top:1px solid var(--line);padding-top:16px}
+.t-name{font-weight:600;font-size:1.02rem}
+.t-role{font-size:.84rem;color:var(--ink-soft)}
+.t-loc{font-size:.84rem;color:var(--ink-faint);display:flex;align-items:center;gap:7px;margin-top:6px}
+
+/* ---------- CTA ---------- */
+.cta-band{
+  position:relative;background:var(--hero-bg);color:var(--hero-ink);border-radius:28px;
+  padding:80px 60px;text-align:center;overflow:hidden;
+}
+.cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 120%,rgba(42,122,254,.35),transparent 65%)}
+.cta-band>*{position:relative;z-index:1}
+.cta-band h2{font-size:clamp(1.9rem,4vw,3rem);max-width:22ch;margin:14px auto 18px}
+.cta-band p{color:var(--hero-soft);max-width:52ch;margin:0 auto 36px}
+@media(max-width:640px){.cta-band{padding:60px 24px}}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg-alt) 85%,transparent);padding:70px 0 36px;position:relative}
+footer>.wrap{position:relative;z-index:1}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:44px;margin-bottom:56px}
+@media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.foot-grid{grid-template-columns:1fr}}
+.foot-logo img{height:32px;width:auto;margin-bottom:18px}
+.foot-logo .logo-dark{display:none}
+[data-theme="dark"] .foot-logo .logo-light{display:none}
+[data-theme="dark"] .foot-logo .logo-dark{display:block}
+.foot-grid p{color:var(--ink-soft);font-size:.9rem;max-width:34ch}
+.foot-grid h4{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:18px;font-family:"Outfit",sans-serif;font-weight:600}
+.foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.foot-grid ul a{color:var(--ink-soft);font-size:.92rem;transition:color .2s}
+.foot-grid ul a:hover{color:var(--blue)}
+.socials{display:flex;gap:10px;margin-top:20px}
+.socials a{
+  width:38px;height:38px;border-radius:50%;border:1px solid var(--line-strong);
+  display:grid;place-items:center;color:var(--ink-soft);transition:color .2s,border-color .2s,transform .2s;
+}
+.socials a:hover{color:var(--blue);border-color:var(--blue);transform:translateY(-3px)}
+.socials svg{width:17px;height:17px}
+.foot-entities{display:flex;flex-direction:column;gap:18px}
+.entity{border-left:2px solid var(--blue);padding-left:14px}
+.entity b{display:block;font-size:.85rem;letter-spacing:.04em}
+.entity span{font-size:.82rem;color:var(--ink-soft)}
+.foot-bottom{border-top:1px solid var(--line);padding-top:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--ink-faint);font-size:.84rem}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- AI ASSISTANT ---------- */
+.chat-fab{
+  position:fixed;bottom:22px;right:22px;z-index:300;width:60px;height:60px;border-radius:50%;
+  background:var(--blue);border:none;cursor:pointer;display:grid;place-items:center;color:#fff;
+  box-shadow:0 14px 34px -8px rgba(42,122,254,.65);transition:transform .25s;
+}
+.chat-fab:hover{transform:scale(1.08)}
+.chat-fab::after{
+  content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid rgba(42,122,254,.5);
+  animation:chatpulse 2.4s ease-out infinite;
+}
+@keyframes chatpulse{0%{transform:scale(.85);opacity:1}70%{transform:scale(1.25);opacity:0}100%{opacity:0}}
+.chat-fab svg{width:26px;height:26px}
+.chat-fab .ic-close{display:none}
+.chat-fab.open .ic-chat{display:none}
+.chat-fab.open .ic-close{display:block}
+.chat-fab.open::after{display:none}
+.chat-panel{
+  position:fixed;bottom:96px;right:22px;z-index:300;width:380px;max-width:calc(100vw - 28px);
+  height:560px;max-height:calc(100dvh - 130px);
+  background:var(--card);border:1px solid var(--line-strong);border-radius:22px;
+  display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,20,54,.45);
+  transform:translateY(16px) scale(.92);opacity:0;pointer-events:none;transform-origin:bottom right;
+  transition:transform .3s cubic-bezier(.2,.9,.3,1.2),opacity .25s;
+}
+.chat-panel.open{transform:none;opacity:1;pointer-events:auto}
+.chat-head{
+  background:var(--hero-bg);color:#f7f8fb;padding:16px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0;
+}
+.chat-avatar{
+  width:38px;height:38px;border-radius:12px;background:var(--blue);display:grid;place-items:center;flex-shrink:0;
+  font-family:"Nohemi","Outfit",sans-serif;font-weight:600;font-size:1rem;color:#fff;
+}
+.chat-head .t{font-weight:600;font-size:.95rem;font-family:"Nohemi","Outfit",sans-serif}
+.chat-head .s{font-size:.74rem;color:rgba(247,248,251,.6);display:flex;align-items:center;gap:6px}
+.chat-head .s::before{content:"";width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 8px #3ddc84}
+.chat-msgs{flex:1;overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.msg{max-width:85%;padding:11px 15px;border-radius:16px;font-size:.9rem;line-height:1.5;animation:msgin .3s ease both}
+@keyframes msgin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg.bot{background:color-mix(in srgb,var(--blue) 9%,var(--card));border:1px solid rgba(42,122,254,.2);border-bottom-left-radius:4px;align-self:flex-start;color:var(--ink)}
+.msg.user{background:var(--blue);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.msg a{color:var(--blue);font-weight:600;text-decoration:underline}
+.msg.user a{color:#fff}
+.typing{display:inline-flex;gap:4px;padding:14px 16px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--ink-faint);animation:tbounce 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}
+.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tbounce{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-5px);opacity:1}}
+.chat-chips{display:flex;gap:8px;padding:0 16px 10px;flex-wrap:wrap;flex-shrink:0}
+.chip{
+  border:1px solid rgba(42,122,254,.4);background:rgba(42,122,254,.07);color:var(--blue);
+  font-size:.78rem;font-weight:600;padding:7px 14px;border-radius:100px;cursor:pointer;
+  transition:background .2s,transform .2s;font-family:"Outfit",sans-serif;
+}
+.chip:hover{background:rgba(42,122,254,.16);transform:translateY(-1px)}
+.chat-input{display:flex;gap:10px;padding:12px 14px;border-top:1px solid var(--line);flex-shrink:0;background:var(--card)}
+.chat-input input{
+  flex:1;border:1px solid var(--line-strong);background:var(--bg-alt);color:var(--ink);
+  border-radius:100px;padding:11px 18px;font-size:.9rem;font-family:"Outfit",sans-serif;outline:none;transition:border-color .2s;
+}
+.chat-input input:focus{border-color:var(--blue)}
+.chat-input button{
+  width:44px;height:44px;border-radius:50%;border:none;background:var(--blue);color:#fff;cursor:pointer;
+  display:grid;place-items:center;flex-shrink:0;transition:transform .2s;
+}
+.chat-input button:hover{transform:scale(1.08)}
+.chat-input button svg{width:18px;height:18px}
+@media(max-width:560px){
+  .chat-panel{right:10px;left:10px;width:auto;bottom:88px;height:72dvh}
+  .chat-fab{bottom:16px;right:16px}
+}
+
+/* ---------- MOBILE POLISH ---------- */
+@media(max-width:640px){
+  .hero{padding:140px 0 80px}
+  section{padding:72px 0}
+  .hero-actions .btn{flex:1 1 auto}
+  .sec-head{margin-bottom:36px}
+}
+@media(max-width:420px){
+  .steps{grid-template-columns:1fr 1fr;gap:12px}
+  .step{padding:20px 16px}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .chat-fab::after{animation:none}
+}
+</style>
+</head>
+<body>
+
+<canvas id="bg3d" aria-hidden="true"></canvas>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="SkiFi Solutions home">
+      <img class="logo-light" src="assets/logo-on-light.svg" alt="SkiFi">
+      <img class="logo-dark" src="assets/logo-on-dark.png" alt="SkiFi">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#solutions">Solutions</a>
+      <a href="#process">Process</a>
+      <a href="#engagement">Engagement</a>
+      <a href="https://skifidesigns.com" target="_blank" rel="noopener">SkiFi Designs</a>
+      <a class="nav-cta" href="https://calendly.com/contact-skifidesigns/30min" target="_blank" rel="noopener">Get in touch</a>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></svg>
+        <svg class="tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <canvas id="hero3d" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h1>Every digital solution<br>your business needs.<br><em>One studio.</em></h1>
+    <p class="lede">SkiFi Solutions is a full-stack digital studio - the same team whose decks helped founders raise $150M+ now designs, builds and grows brands, websites, stores and products end-to-end.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://calendly.com/contact-skifidesigns/30min" target="_blank" rel="noopener">Start a project
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#solutions">Browse solutions</a>
+    </div>
+  </div>
+</header>
+
+<section id="solutions">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="mono">01 - What we do</span>
+        <h2>Nine solution lines, end to end</h2>
+      </div>
+      <p>Strategy, design, engineering and growth under one roof - pick a single service or hand us the whole build.</p>
+    </div>
+    <div class="sol-grid">
+
+      <a class="sol-card reveal" href="https://skifidesigns.com" target="_blank" rel="noopener">
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8m-4-3v3M6 8h6M6 11h9"/></svg></div>
+        <h3>Presentation & Pitch Deck Design</h3>
+        <p>Via SkiFi Designs - decks engineered to raise capital and close deals.</p>
+        <ul>
+          <li>Investor pitch decks (seed → Series C)</li>
+          <li>Sales & corporate decks</li>
+          <li>Slide systems & templates</li>
+          <li>Deck redesigns & makeovers</li>
+        </ul>
+        <span class="card-link">skifidesigns.com <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+
+      <div class="sol-card reveal">
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><path d="M17 21a5 5 0 0 0-10 0M3 11l7-7 4 4-7 7H3v-4Z"/></svg></div>
+        <h3>Brand Identity & Design</h3>
+        <p>Brands built to be remembered - from naming to full identity systems.</p>
+        <ul>
+          <li>Logo & visual identity</li>
+          <li>Brand guidelines & design systems</li>
+          <li>Packaging & print collateral</li>
+          <li>Rebrands & brand refreshes</li>
+        </ul>
+      </div>
+
+      <div class="sol-card reveal">
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-5 4 5 4m8-8 5 4-5 4m-3-11-2 14"/></svg></div>
+        <h3>Web Design & Development</h3>
+        <p>Fast, beautiful, conversion-focused websites and web apps.</p>
+        <ul>
+          <li>Marketing sites & landing pages</li>
+          <li>Custom web applications</li>
+          <li>CMS builds (WordPress, headless)</li>
+          <li>Performance & SEO-ready builds</li>
+        </ul>
+      </div>
+
+      <div class="sol-card reveal">
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h2.5l2.6 12.4a2 2 0 0 0 2 1.6h8.3a2 2 0 0 0 2-1.6L21 7H6"/></svg></div>
+        <h3>eCommerce Solutions</h3>
+        <p>We run our own stores - Nehtar and Dasthar - and build yours the same way.</p>
+        <ul>
+          <li>Shopify & WooCommerce builds</li>
+          <li>Store design & CRO</li>
+          <li>Product photography direction</li>
+          <li>Payments, shipping & ops setup</li>
+        </ul>
+      </div>
+
+      <div class="sol-card reveal">
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>UI/UX & Product Design</h3>
+        <p>Interfaces users love - researched, prototyped and tested.</p>
+        <ul>
+          <li>Product & app UI design</li>
+          <li>UX audits & user flows</li>
+          <li>Design systems & component libraries</li>
+          <li>Interactive prototypes</li>
+        </ul>
+      </div>
+
+      <div class="sol-card reveal">
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.1-.5 2.1-1.2 2.8L16 10h3a3 3 0 0 1 0 6h-1m-6 6a4 4 0 0 1-4-4c0-1.1.5-2.1 1.2-2.8L8 14H5a3 3 0 0 1 0-6h1m6-4v20"/></svg></div>
+        <h3>AI & Automation</h3>
+        <p>Practical AI that saves hours - not hype. Built into your workflows.</p>
+        <ul>
+          <li>AI chatbots & assistants</li>
+          <li>Workflow & process automation</li>
+          <li>AI content & design pipelines</li>
+          <li>Custom AI tool development</li>
+        </ul>
+      </div>
+
+      <div class="sol-card reveal">
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8m0 0h-5m5 0v5"/></svg></div>
+        <h3>Digital Marketing & SEO</h3>
+        <p>Growth engines that compound - search, social and paid.</p>
+        <ul>
+          <li>SEO & content strategy</li>
+          <li>Paid ads (Google, Meta)</li>
+          <li>Email marketing & funnels</li>
+          <li>Analytics & reporting</li>
+        </ul>
+      </div>
+
+      <div class="sol-card reveal">
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="15" height="14" rx="2"/><path d="m22 8-5 3.5L22 15V8Z"/></svg></div>
+        <h3>Video & Motion Graphics</h3>
+        <p>Motion that makes brands move - explainers to product films.</p>
+        <ul>
+          <li>Explainer & product videos</li>
+          <li>Motion graphics & animation</li>
+          <li>Social media video content</li>
+          <li>Animated presentations</li>
+        </ul>
+      </div>
+
+      <div class="sol-card reveal">
+        <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5Z"/></svg></div>
+        <h3>Content & Copywriting</h3>
+        <p>Words that sell the work - clear, sharp and on-brand.</p>
+        <ul>
+          <li>Website & landing page copy</li>
+          <li>Pitch narrative & storytelling</li>
+          <li>Blog & SEO content</li>
+          <li>Brand voice & messaging</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="mono">02 - How we work</span>
+        <h2>A process that ships</h2>
+      </div>
+      <p>The same operating rhythm that runs our own brands runs your project.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h3>Discover</h3><p>Goals, audience, competitors - we map what winning looks like.</p></div>
+      <div class="step reveal"><h3>Define</h3><p>Scope, timeline and a fixed quote. No hourly surprises.</p></div>
+      <div class="step reveal"><h3>Design</h3><p>Concepts, iterations and reviews until it's unmistakably right.</p></div>
+      <div class="step reveal"><h3>Build</h3><p>Engineering, content and QA - shipped on schedule.</p></div>
+      <div class="step reveal"><h3>Grow</h3><p>Launch support, optimisation and ongoing iteration.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="engagement">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="mono">03 - Engagement</span>
+        <h2>Three ways to work with us</h2>
+      </div>
+    </div>
+    <div class="models">
+      <div class="model reveal">
+        <h3>Fixed Project</h3>
+        <div class="sub">Defined scope · fixed quote</div>
+        <ul>
+          <li>Clear deliverables & timeline</li>
+          <li>Quote within 24 hours</li>
+          <li>Best for websites, brands & decks</li>
+          <li>Revisions built into scope</li>
+        </ul>
+      </div>
+      <div class="model hot reveal">
+        <span class="flag">Most popular</span>
+        <h3>Monthly Retainer</h3>
+        <div class="sub">Ongoing design & dev capacity</div>
+        <ul>
+          <li>Priority 48-hour turnarounds</li>
+          <li>Flexible credits across services</li>
+          <li>Dedicated design & dev team</li>
+          <li>Pause or scale any month</li>
+        </ul>
+      </div>
+      <div class="model reveal">
+        <h3>Dedicated Team</h3>
+        <div class="sub">Your embedded SkiFi squad</div>
+        <ul>
+          <li>Full-time designers & developers</li>
+          <li>Works in your tools & timezone</li>
+          <li>Best for products & scale-ups</li>
+          <li>US + India coverage, near 24/7</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="mono">04 - Client love</span>
+        <h2>What clients say about SkiFi</h2>
+      </div>
+      <p>Founders and teams across 30+ countries - here's how working with us actually feels.</p>
+    </div>
+    <div class="t-grid">
+      <div class="t-card reveal">
+        <div class="t-top"><span class="t-quote">&ldquo;</span><span class="t-stars">★★★★★</span></div>
+        <p class="t-text">"Working with SkiFi has been a great experience. I genuinely consider them part of our team and look forward to working with them on each project. Highly recommend!"</p>
+        <div class="t-meta">
+          <div class="t-name">Patrick Brane</div>
+          <div class="t-role">Director, Underberg America</div>
+          <div class="t-loc">🇺🇸 United States</div>
+        </div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-top"><span class="t-quote">&ldquo;</span><span class="t-stars">★★★★★</span></div>
+        <p class="t-text">"I looked for multiple people to help but this agency was first to respond, clear communication and professionalism. I would use them again 100% and it only took one revision to fix a couple of things. Super happy and took a big weight off me."</p>
+        <div class="t-meta">
+          <div class="t-name">Nadia Shaheen</div>
+          <div class="t-role">Founder</div>
+          <div class="t-loc">🇲🇦 Morocco</div>
+        </div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-top"><span class="t-quote">&ldquo;</span><span class="t-stars">★★★★★</span></div>
+        <p class="t-text">"Transparent and professional collaboration. SkiFi kept me informed throughout the process and found the best possible solutions for us. A very positive experience, I would happily work with them again."</p>
+        <div class="t-meta">
+          <div class="t-name">Grace Bitag</div>
+          <div class="t-role">Founder, Business Successor</div>
+          <div class="t-loc">🇨🇭 Switzerland</div>
+        </div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-top"><span class="t-quote">&ldquo;</span><span class="t-stars">★★★★★</span></div>
+        <p class="t-text">"Exceeded my expectations. Extremely satisfied with the quality and the fast turnaround; everything arrived exactly as described and was professionally done. I'll be back!"</p>
+        <div class="t-meta">
+          <div class="t-name">Anna</div>
+          <div class="t-role">Founder, BeFit4Health</div>
+          <div class="t-loc">🇺🇸 United States</div>
+        </div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-top"><span class="t-quote">&ldquo;</span><span class="t-stars">★★★★★</span></div>
+        <p class="t-text">"Does excellent work; understands the brand and keeps language and communication simple. We've done a number of different projects with the team and will continue to."</p>
+        <div class="t-meta">
+          <div class="t-name">James</div>
+          <div class="t-role">Co-founder, UniversityCity</div>
+          <div class="t-loc">🇺🇸 United States</div>
+        </div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-top"><span class="t-quote">&ldquo;</span><span class="t-stars">★★★★★</span></div>
+        <p class="t-text">"It was great to work with SkiFi; they deeply understood our brand value and positioning to deliver a deck that really matched our company. Great design, smooth transitions, and timely delivery."</p>
+        <div class="t-meta">
+          <div class="t-name">Seren</div>
+          <div class="t-role">Founder</div>
+          <div class="t-loc">🇯🇵 Japan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <span class="mono" style="color:var(--blue)">Let's build</span>
+      <h2>Tell us what you're building. We'll tell you how fast we can ship it.</h2>
+      <p>Send a brief - even a rough one - and get a plan and a fixed quote within 24 hours.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-primary" href="https://calendly.com/contact-skifidesigns/30min" target="_blank" rel="noopener">Book a meeting
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="mailto:contact@skifidesigns.com?subject=Project%20enquiry%20-%20SkiFi%20Solutions">contact@skifidesigns.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-logo">
+        <img class="logo-light" src="assets/logo-on-light.svg" alt="SkiFi">
+        <img class="logo-dark" src="assets/logo-on-dark.png" alt="SkiFi">
+        <p>A full-stack digital studio building brands, websites, stores and products for clients worldwide.</p>
+        <div class="socials">
+          <a href="https://instagram.com/skifidesigns" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.fiverr.com/skifidesigns" target="_blank" rel="noopener" aria-label="Fiverr">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.6" stroke="currentColor" stroke-width="1.7"/><text x="12" y="15.8" text-anchor="middle" font-size="10.5" font-weight="700" fill="currentColor" font-family="Outfit,sans-serif">fi</text></svg>
+          </a>
+          <a href="https://in.linkedin.com/company/skifi" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02 3.5 1.13 1 2.5 1s2.48 1.12 2.48 2.5ZM.5 8h4v15h-4V8Zm7.5 0h3.8v2.05h.06c.53-1 1.82-2.05 3.75-2.05 4.01 0 4.75 2.64 4.75 6.07V23h-4v-8.1c0-1.93-.03-4.42-2.7-4.42-2.7 0-3.11 2.1-3.11 4.28V23H8V8Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Brands</h4>
+        <ul>
+          <li><a href="https://skifidesigns.com" target="_blank" rel="noopener">SkiFi Designs</a></li>
+          <li><a href="index.html">SkiFi Solutions</a></li>
+        </ul>
+        <h4 style="margin-top:26px">Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="cookies.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#engagement">Engagement</a></li>
+          <li><a href="tel:+917827087878">+91 78270 87878</a></li>
+          <li><a href="mailto:contact@skifidesigns.com">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-entities">
+        <h4>Entities</h4>
+        <div class="entity">
+          <b>SKIFI GROUP LLC</b>
+          <span>Sheridan, Wyoming, United States</span>
+        </div>
+        <div class="entity">
+          <b>SKIFI CREATIVE HUB LLP</b>
+          <span>Kozhikkode, Kerala, India</span>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> SkiFi Group LLC. All rights reserved.</span>
+      <span><a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="cookies.html">Cookies</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- AI ASSISTANT -->
+<button class="chat-fab" id="chatFab" aria-label="Chat with Skagent - SkiFi AI Assistant">
+  <svg class="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4 8.9 8.9 0 0 1-3.2-.6L3 21l1.7-5.1a8.2 8.2 0 0 1-1.2-4.4A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4Z"/></svg>
+  <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+</button>
+<div class="chat-panel" id="chatPanel" role="dialog" aria-label="Skagent - SkiFi AI Assistant">
+  <div class="chat-head">
+    <div class="chat-avatar">S</div>
+    <div>
+      <div class="t">Skagent</div>
+      <div class="s">SkiFi AI Assistant · online</div>
+    </div>
+  </div>
+  <div class="chat-msgs" id="chatMsgs"></div>
+  <div class="chat-chips" id="chatChips">
+    <button class="chip">What do you do?</button>
+    <button class="chip">Pricing</button>
+    <button class="chip">Timelines</button>
+    <button class="chip">Talk to a human</button>
+  </div>
+  <div class="chat-input">
+    <input id="chatInput" type="text" placeholder="Ask me anything..." autocomplete="off">
+    <button id="chatSend" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-11 11M22 2 15 22l-4-9-9-4L22 2Z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+// ---------- Theme ----------
+const root=document.documentElement,tgl=document.getElementById('themeToggle');
+let saved=null;try{saved=localStorage.getItem('skifi-theme')}catch(e){}
+if(saved){root.dataset.theme=saved}
+else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){root.dataset.theme='dark'}
+tgl.addEventListener('click',()=>{
+  root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
+  try{localStorage.setItem('skifi-theme',root.dataset.theme)}catch(e){}
+  window.dispatchEvent(new Event('skifi-theme'));
+});
+// ---------- Mobile menu ----------
+const mb=document.getElementById('menuBtn'),nl=document.getElementById('navLinks');
+mb.addEventListener('click',()=>nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+// ---------- Reveal ----------
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.getElementById('yr').textContent=new Date().getFullYear();
+// ---------- 3D tilt (desktop pointers only) ----------
+const fine=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+const noMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(fine&&!noMotion){
+  document.querySelectorAll('.sol-card,.model,.step,.t-card').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`rotateX(${(-y*7).toFixed(2)}deg) rotateY(${(x*7).toFixed(2)}deg) translateY(-6px) scale(1.01)`;
+      card.style.transition='box-shadow .3s ease,border-color .3s ease';
+    });
+    card.addEventListener('mouseleave',()=>{card.style.transform='';card.style.transition=''});
+  });
+}
+// ---------- AI Assistant ----------
+(function(){
+  const PHONE_DISPLAY='+91 78270 87878';
+  const TEL='<a href="tel:+917827087878">'+PHONE_DISPLAY+'</a>';
+  const WA='<a href="https://wa.me/917827087878" target="_blank" rel="noopener">WhatsApp</a>';
+  const MAIL='<a href="mailto:contact@skifidesigns.com">contact@skifidesigns.com</a>';
+  const KB=[
+    {k:['hello','hi ','hii','hey','salam','assalam','good morning','good afternoon','good evening','hai'],
+     a:"Hey there! 👋 Welcome to SkiFi Solutions. Ask me about our services, pricing, timelines, process - anything."},
+    {k:['what do you do','services','service','what can you','solutions','offer','capabilities','help me with'],
+     a:"We're a full-stack digital studio with nine solution lines: pitch deck & presentation design, brand identity, web design & development, eCommerce, UI/UX & product design, AI & automation, digital marketing & SEO, video & motion graphics, and content & copywriting. Which one are you curious about?"},
+    {k:['pitch','deck','presentation','powerpoint','ppt','slides','investor','fundrais','raise'],
+     a:"Pitch decks are our flagship craft, handled by <a href='https://skifidesigns.com' target='_blank' rel='noopener'>SkiFi Designs</a>. Founders using our decks have raised $150M+ across 30+ countries. Share your brief and you'll get a tailored quote within 24 hours, with 3-7 business day turnarounds."},
+    {k:['price','pricing','cost','how much','charge','budget','quote','rates','fee'],
+     a:"We work on fixed quotes - no hourly surprises. Every project is priced individually based on its scope, so you only pay for what you actually need. Email a rough brief to "+MAIL+" and you'll get an exact quote within 24 hours."},
+    {k:['website','web design','web dev','landing','webapp','web app','wordpress','app develop','application'],
+     a:"We design and build marketing sites, landing pages, custom web apps and CMS builds (WordPress or headless) - fast, beautiful and SEO-ready. Most sites ship in 2-6 weeks."},
+    {k:['ecommerce','e-commerce','store','shopify','woocommerce','online shop','sell online','shop'],
+     a:"eCommerce is home turf - we run our own stores (Nehtar, Dasthar), so we build yours like owners: Shopify/WooCommerce builds, store design, CRO, payments and shipping setup."},
+    {k:['brand','logo','identity','rebrand','guidelines','packaging'],
+     a:"We build brands end to end: naming, logo and visual identity, brand guidelines, design systems, packaging and rebrands."},
+    {k:['ui','ux','product design','interface','figma','prototype','design system','user experience'],
+     a:"Our UI/UX team covers product & app UI, UX audits, user flows, design systems and interactive prototypes - researched, tested and dev-ready."},
+    {k:['ai','automation','chatbot','bot','workflow','machine learning','gpt','artificial'],
+     a:"We build practical AI: chatbots and assistants (like me!), workflow automation, AI content/design pipelines and custom AI tools wired into your business."},
+    {k:['marketing','seo','ads','advertis','growth','social media','google ads','meta ads','email marketing','funnel'],
+     a:"Growth that compounds: SEO & content strategy, paid ads on Google & Meta, email funnels and analytics with clear reporting."},
+    {k:['video','motion','animation','explainer','reel','film'],
+     a:"We produce explainer & product videos, motion graphics, social video content and animated presentations."},
+    {k:['content','copy','copywriting','blog','writing','words','messaging'],
+     a:"Sharp, on-brand words: website & landing copy, pitch narratives, blog/SEO content and brand voice & messaging."},
+    {k:['book','meeting','schedule','calendly','appointment','call with','discovery call','consultation'],
+     a:"You can book a free meeting with the team right now: <a href='https://calendly.com/contact-skifidesigns/30min' target='_blank' rel='noopener'>pick a slot on Calendly</a> - or just hit the 'Get in touch' button in the menu."},
+    {k:['process','how do you work','steps','workflow','methodology','start a project','get started','onboard'],
+     a:"Five steps: <b>Discover</b> (goals & market) → <b>Define</b> (scope + fixed quote) → <b>Design</b> (iterate until right) → <b>Build</b> (ship on schedule) → <b>Grow</b> (optimise post-launch). Starting is easy - email "+MAIL+"."},
+    {k:['time','timeline','turnaround','how long','deadline','fast','urgent','delivery'],
+     a:"Typical timelines: deck redesigns 2-3 days, full decks 3-7 business days, brand identities 2-4 weeks, websites 2-6 weeks. Retainer clients get 48-hour priority turnarounds. On a tight deadline? Tell us - we're honest about what's possible."},
+    {k:['retainer','engagement','monthly','dedicated team','hire','subscription','ongoing'],
+     a:"Three ways to work with us: <b>Fixed Project</b> (defined scope, fixed quote), <b>Monthly Retainer</b> (priority 48h turnarounds, flexible credits) or a <b>Dedicated Team</b> embedded with yours."},
+    {k:['where','location','office','based','address','wyoming','kerala','india','usa','america','kozhik','calicut','sheridan'],
+     a:"Two hubs, one team: <b>SKIFI GROUP LLC</b> in Sheridan, Wyoming (USA) and <b>SKIFI CREATIVE HUB LLP</b> in Kozhikkode, Kerala (India) - giving clients near-24/7 coverage."},
+    {k:['group','brands','nehtar','dasthar','skacer','idrop','skifi designs','portfolio of brands','other companies'],
+     a:"SkiFi Group builds and operates its own brands: <a href='https://skifidesigns.com' target='_blank' rel='noopener'>SkiFi Designs</a>, SkiFi Solutions, <a href='https://idropdigital.com' target='_blank' rel='noopener'>iDrop</a>, Dasthar, Skacer and Nehtar - with more on the way."},
+    {k:['portfolio','work','examples','case stud','clients','past project','sample','review','testimonial','rating'],
+     a:"We've delivered 2,700+ projects for 150+ clients across 30+ countries, including decks behind $150M+ in funding. See live work at <a href='https://skifidesigns.com' target='_blank' rel='noopener'>skifidesigns.com</a>, or ask us for samples in your industry."},
+    {k:['contact','email','phone','call','whatsapp','human','person','talk to','number','reach','support','agent','representative'],
+     a:"Here's the team, directly: 📞 "+TEL+" · "+WA+" · ✉️ "+MAIL+". They usually reply within the hour during business time. You can also find us on <a href='https://instagram.com/skifidesigns' target='_blank' rel='noopener'>Instagram</a>, <a href='https://www.fiverr.com/skifidesigns' target='_blank' rel='noopener'>Fiverr</a> and <a href='https://in.linkedin.com/company/skifi' target='_blank' rel='noopener'>LinkedIn</a>."},
+    {k:['career','job','hiring','intern','work with you','vacancy','join'],
+     a:"We're always happy to meet great designers, developers and marketers. Send your portfolio to "+MAIL+"."},
+    {k:['payment','pay','invoice','refund','method','upi','paypal','stripe'],
+     a:"We support standard international payments (cards, transfers) and Indian methods for local clients. Terms are agreed upfront with your fixed quote."},
+    {k:['thank','thanks','great','awesome','perfect','nice','cool','ok','okay','good'],
+     a:"Anytime! 😊 Ask me anything else whenever you like."},
+    {k:['bye','goodbye','see you','later'],
+     a:"Bye! 👋 Come back whenever you're ready to build something."}
+  ];
+  const FALLBACK="Good question - I want you to get a proper answer rather than a guess. Please call or "+WA+" our team at "+TEL+" and they'll sort you out right away. You can also email "+MAIL+".";
+  const fab=document.getElementById('chatFab'),panel=document.getElementById('chatPanel'),
+        msgs=document.getElementById('chatMsgs'),input=document.getElementById('chatInput'),
+        send=document.getElementById('chatSend'),chips=document.getElementById('chatChips');
+  let opened=false;
+  fab.addEventListener('click',()=>{
+    panel.classList.toggle('open');fab.classList.toggle('open');
+    if(panel.classList.contains('open')){
+      if(!opened){opened=true;botSay("Hi! I'm Skagent, the SkiFi AI assistant 🤖 - ask me about services, pricing, timelines or anything else. If I don't know something, I'll point you straight to the team.");}
+      setTimeout(()=>input.focus(),350);
+    }
+  });
+  function el(cls,html){const d=document.createElement('div');d.className=cls;d.innerHTML=html;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d}
+  function botSay(html){el('msg bot',html)}
+  function userSay(text){const d=document.createElement('div');d.className='msg user';d.textContent=text;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight}
+  function answer(q){
+    const t=' '+q.toLowerCase().trim()+' ';
+    let best=null,bestScore=0;
+    for(const item of KB){
+      let s=0;
+      for(const k of item.k){if(t.includes(k))s+=k.length}
+      if(s>bestScore){bestScore=s;best=item}
+    }
+    return best?best.a:FALLBACK;
+  }
+  function handle(q){
+    if(!q.trim())return;
+    userSay(q);input.value='';
+    const tip=el('msg bot typing','<i></i><i></i><i></i>');
+    setTimeout(()=>{tip.remove();botSay(answer(q))},650+Math.random()*550);
+  }
+  send.addEventListener('click',()=>handle(input.value));
+  input.addEventListener('keydown',e=>{if(e.key==='Enter')handle(input.value)});
+  chips.addEventListener('click',e=>{if(e.target.classList.contains('chip'))handle(e.target.textContent)});
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ---------- 3D ENGINE v3 : DIGITAL OCEAN + CONSTELLATION ----------
+(function(){
+  if(typeof THREE==='undefined')return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var isMobile=window.matchMedia('(max-width: 720px)').matches;
+  var DPR=Math.min(window.devicePixelRatio||1,isMobile?1.5:2);
+  var BLUE=0x2A7AFE;
+  var rootEl=document.documentElement;
+
+  function glowTexture(inner,mid){
+    var c=document.createElement('canvas');c.width=c.height=128;
+    var g=c.getContext('2d');
+    var grd=g.createRadialGradient(64,64,0,64,64,64);
+    grd.addColorStop(0,inner);grd.addColorStop(.35,mid);grd.addColorStop(1,'rgba(0,0,0,0)');
+    g.fillStyle=grd;g.fillRect(0,0,128,128);
+    return new THREE.CanvasTexture(c);
+  }
+  var TEX_BRIGHT=glowTexture('rgba(200,222,255,1)','rgba(42,122,254,.5)');
+  var TEX_SOFT=glowTexture('rgba(42,122,254,.9)','rgba(42,122,254,.28)');
+  var TEX_DOT=glowTexture('rgba(160,200,255,1)','rgba(42,122,254,.6)');
+
+  /* ================= HERO : WAVE OCEAN + PLEXUS ================= */
+  (function(){
+    var canvas=document.getElementById('hero3d');if(!canvas)return;
+    var hero=canvas.parentElement;
+    var renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:false});
+    renderer.setPixelRatio(DPR);
+    var scene=new THREE.Scene();
+    var camera=new THREE.PerspectiveCamera(55,1,0.1,140);
+    camera.position.set(0,2.4,14);
+    var world=new THREE.Group();scene.add(world);
+
+    // ---- animated dot-wave ocean ----
+    var GX=isMobile?80:150, GZ=isMobile?34:56, SP=.55;
+    var WN=GX*GZ;
+    var wavePos=new Float32Array(WN*3);
+    var i,x,z,k=0;
+    for(z=0;z<GZ;z++){
+      for(x=0;x<GX;x++){
+        wavePos[k*3]=(x-GX/2)*SP;
+        wavePos[k*3+1]=0;
+        wavePos[k*3+2]=-z*SP;
+        k++;
+      }
+    }
+    var waveGeo=new THREE.BufferGeometry();
+    waveGeo.setAttribute('position',new THREE.BufferAttribute(wavePos,3));
+    var waveMat=new THREE.PointsMaterial({
+      color:BLUE,size:isMobile?.09:.08,transparent:true,opacity:.75,
+      sizeAttenuation:true,map:TEX_DOT,blending:THREE.AdditiveBlending,depthWrite:false
+    });
+    var waves=new THREE.Points(waveGeo,waveMat);
+    waves.position.set(0,-4.6,6);
+    world.add(waves);
+    var wArr=waveGeo.attributes.position.array;
+    function waveY(px,pz,t){
+      return Math.sin(px*.25+t*1.1)*.7
+           + Math.sin(pz*.35+t*.8)*.55
+           + Math.sin((px+pz)*.18+t*.55)*.9
+           + Math.cos(px*.08-t*.4)*.5;
+    }
+
+    // ---- plexus constellation ----
+    var PXN=isMobile?42:86;
+    var RANGE={x:isMobile?11:19,y:5.5,z:7};
+    var CY=3.1, CZ=-6;
+    var nodes=[];
+    for(i=0;i<PXN;i++){
+      nodes.push({
+        p:new THREE.Vector3((Math.random()-.5)*2*RANGE.x,CY+(Math.random()-.5)*2*RANGE.y,CZ+(Math.random()-.5)*2*RANGE.z),
+        v:new THREE.Vector3((Math.random()-.5)*.012,(Math.random()-.5)*.009,(Math.random()-.5)*.009)
+      });
+    }
+    var nodePos=new Float32Array(PXN*3);
+    var nodeGeo=new THREE.BufferGeometry();
+    nodeGeo.setAttribute('position',new THREE.BufferAttribute(nodePos,3));
+    var nodePts=new THREE.Points(nodeGeo,new THREE.PointsMaterial({
+      color:0x9cc4ff,size:.16,transparent:true,opacity:.95,sizeAttenuation:true,
+      map:TEX_DOT,blending:THREE.AdditiveBlending,depthWrite:false
+    }));
+    world.add(nodePts);
+    var MAXL=PXN*5;
+    var linePos=new Float32Array(MAXL*6);
+    var lineGeo=new THREE.BufferGeometry();
+    lineGeo.setAttribute('position',new THREE.BufferAttribute(linePos,3));
+    var lines=new THREE.LineSegments(lineGeo,new THREE.LineBasicMaterial({
+      color:BLUE,transparent:true,opacity:.22,blending:THREE.AdditiveBlending,depthWrite:false
+    }));
+    world.add(lines);
+    var LINKD=isMobile?2.6:2.9;
+
+    // ---- shooting light streaks across the constellation ----
+    var streaks=[];
+    var SN=isMobile?2:4;
+    for(i=0;i<SN;i++){
+      var s=new THREE.Sprite(new THREE.SpriteMaterial({map:TEX_BRIGHT,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false}));
+      s.scale.setScalar(.5);
+      s.userData={t0:Math.random()*8,dur:1.6+Math.random(),from:new THREE.Vector3(),to:new THREE.Vector3()};
+      world.add(s);streaks.push(s);
+    }
+    function resetStreak(s,t){
+      var a=nodes[(Math.random()*PXN)|0].p,b=nodes[(Math.random()*PXN)|0].p;
+      s.userData.from.copy(a);s.userData.to.copy(b);
+      s.userData.t0=t+Math.random()*4;s.userData.dur=1.2+Math.random()*1.2;
+    }
+
+    // ---- bokeh atmosphere ----
+    var bokeh=[];
+    var BN=isMobile?6:12;
+    for(i=0;i<BN;i++){
+      var bk=new THREE.Sprite(new THREE.SpriteMaterial({map:i%2?TEX_BRIGHT:TEX_SOFT,transparent:true,opacity:.12+Math.random()*.2,blending:THREE.AdditiveBlending,depthWrite:false}));
+      bk.position.set((Math.random()-.5)*34,(Math.random()-.5)*16+2,-14+Math.random()*10);
+      var sc=.8+Math.random()*3;bk.scale.setScalar(sc);
+      bk.userData={base:sc,sp:.3+Math.random()*.7,ph:Math.random()*6,fy:bk.position.y};
+      world.add(bk);bokeh.push(bk);
+    }
+
+
+    // ---- DESIGN STUDIO OBJECT (right side) ----
+    scene.add(new THREE.AmbientLight(0x8ab4ff,.6));
+    var keyL=new THREE.DirectionalLight(0xffffff,.9);keyL.position.set(4,8,10);scene.add(keyL);
+    var SX=isMobile?0:7.6, SY=isMobile?5.4:.5, SZ=isMobile?-9:-2.2;
+    var accentL=new THREE.PointLight(BLUE,1.8,30);accentL.position.set(SX-3,SY+4,4);scene.add(accentL);
+    var studio=new THREE.Group();
+    studio.position.set(SX,SY,SZ);
+    studio.scale.setScalar(isMobile?.75:1.4);
+    world.add(studio);
+
+    function roundedPanel(w,h,r){
+      var s=new THREE.Shape();
+      s.moveTo(-w/2+r,-h/2);
+      s.lineTo(w/2-r,-h/2);s.absarc(w/2-r,-h/2+r,r,-Math.PI/2,0,false);
+      s.lineTo(w/2,h/2-r);s.absarc(w/2-r,h/2-r,r,0,Math.PI/2,false);
+      s.lineTo(-w/2+r,h/2);s.absarc(-w/2+r,h/2-r,r,Math.PI/2,Math.PI,false);
+      s.lineTo(-w/2,-h/2+r);s.absarc(-w/2+r,-h/2+r,r,Math.PI,Math.PI*1.5,false);
+      return new THREE.ExtrudeGeometry(s,{depth:.07,bevelEnabled:false});
+    }
+    var panelGroup=new THREE.Group();studio.add(panelGroup);
+    var panelDefs=[
+      {off:[0,0,0],op:.55,eop:.85},
+      {off:[.55,.45,-.75],op:.34,eop:.5},
+      {off:[1.1,.9,-1.5],op:.18,eop:.28}
+    ];
+    panelDefs.forEach(function(d){
+      var geo=roundedPanel(4.3,3.05,.3);
+      var mesh=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:0x0a2f6e,metalness:.45,roughness:.35,transparent:true,opacity:d.op}));
+      mesh.position.set(d.off[0],d.off[1],d.off[2]);
+      var edges=new THREE.LineSegments(new THREE.EdgesGeometry(geo),new THREE.LineBasicMaterial({color:BLUE,transparent:true,opacity:d.eop,blending:THREE.AdditiveBlending,depthWrite:false}));
+      edges.position.copy(mesh.position);
+      panelGroup.add(mesh);panelGroup.add(edges);
+    });
+    panelGroup.rotation.set(.16,-.52,.04);
+
+    // pen-tool bezier being drawn on the front artboard
+    var penCurve=new THREE.CubicBezierCurve3(
+      new THREE.Vector3(-1.5,-.85,.4),
+      new THREE.Vector3(-.4,1.45,.4),
+      new THREE.Vector3(.6,-1.6,.4),
+      new THREE.Vector3(1.55,.7,.4)
+    );
+    var tubeGeo=new THREE.TubeGeometry(penCurve,72,.035,6,false);
+    tubeGeo.setDrawRange(0,0);
+    var tube=new THREE.Mesh(tubeGeo,new THREE.MeshBasicMaterial({color:0x9cc4ff,transparent:true,opacity:.95,blending:THREE.AdditiveBlending,depthWrite:false}));
+    panelGroup.add(tube);
+    var tubeTotal=tubeGeo.index.count;
+    function miniDot(x,y,z,sc,op){
+      var sp=new THREE.Sprite(new THREE.SpriteMaterial({map:TEX_BRIGHT,transparent:true,opacity:op,blending:THREE.AdditiveBlending,depthWrite:false}));
+      sp.position.set(x,y,z);sp.scale.setScalar(sc);panelGroup.add(sp);return sp;
+    }
+    miniDot(-1.5,-.85,.45,.3,.95);miniDot(1.55,.7,.45,.3,.95);
+    miniDot(-.4,1.45,.45,.16,.55);miniDot(.6,-1.6,.45,.16,.55);
+    var handleGeo=new THREE.BufferGeometry();
+    handleGeo.setAttribute('position',new THREE.BufferAttribute(new Float32Array([
+      -1.5,-.85,.42, -.4,1.45,.42,
+      1.55,.7,.42, .6,-1.6,.42
+    ]),3));
+    panelGroup.add(new THREE.LineSegments(handleGeo,new THREE.LineBasicMaterial({color:BLUE,transparent:true,opacity:.3,blending:THREE.AdditiveBlending,depthWrite:false})));
+    var penTip=new THREE.Sprite(new THREE.SpriteMaterial({map:TEX_BRIGHT,transparent:true,opacity:1,blending:THREE.AdditiveBlending,depthWrite:false}));
+    penTip.scale.setScalar(.5);panelGroup.add(penTip);
+
+    // palette dots on the front artboard
+    [0x2A7AFE,0x9cc4ff,0xffffff,0x5a8fe0].forEach(function(col,i){
+      var dot=new THREE.Mesh(new THREE.SphereGeometry(.095,12,12),new THREE.MeshBasicMaterial({color:col}));
+      dot.position.set(-1.5+i*.42,-1.28,.45);
+      panelGroup.add(dot);
+    });
+
+    // 3D cursor arrow hovering over the boards
+    var cs=new THREE.Shape();
+    cs.moveTo(0,0);cs.lineTo(0,-1.0);cs.lineTo(.27,-.76);cs.lineTo(.45,-1.18);
+    cs.lineTo(.65,-1.09);cs.lineTo(.47,-.7);cs.lineTo(.78,-.7);cs.lineTo(0,0);
+    var cursorMesh=new THREE.Mesh(
+      new THREE.ExtrudeGeometry(cs,{depth:.1,bevelEnabled:false}),
+      new THREE.MeshStandardMaterial({color:0xffffff,metalness:.25,roughness:.35})
+    );
+    cursorMesh.scale.setScalar(.85);
+    cursorMesh.position.set(1.45,.05,.95);
+    cursorMesh.rotation.z=.12;
+    panelGroup.add(cursorMesh);
+    var cursorGlow=new THREE.Sprite(new THREE.SpriteMaterial({map:TEX_SOFT,transparent:true,opacity:.5,blending:THREE.AdditiveBlending,depthWrite:false}));
+    cursorGlow.scale.setScalar(1.6);cursorGlow.position.set(1.45,-.4,.8);
+    panelGroup.add(cursorGlow);
+
+    var mx=0,my=0;
+    if(!isMobile){
+      addEventListener('pointermove',function(e){
+        mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;
+      },{passive:true});
+    }
+    function size(){
+      var w=hero.clientWidth,h=hero.clientHeight;
+      renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();
+    }
+    size();addEventListener('resize',size);
+    var visible=true;
+    new IntersectionObserver(function(en){visible=en[0].isIntersecting},{threshold:0}).observe(hero);
+    var clock=new THREE.Clock();
+
+    (function loop(){
+      requestAnimationFrame(loop);
+      if(!visible)return;
+      var t=clock.getElapsedTime();
+      // waves
+      var n=0,px,pz;
+      for(n=0;n<WN;n++){
+        px=wArr[n*3];pz=wArr[n*3+2];
+        wArr[n*3+1]=waveY(px,pz,t);
+      }
+      waveGeo.attributes.position.needsUpdate=true;
+      // plexus drift
+      for(n=0;n<PXN;n++){
+        var nd=nodes[n];
+        nd.p.add(nd.v);
+        if(Math.abs(nd.p.x)>RANGE.x)nd.v.x*=-1;
+        if(Math.abs(nd.p.y-CY)>RANGE.y)nd.v.y*=-1;
+        if(Math.abs(nd.p.z-CZ)>RANGE.z)nd.v.z*=-1;
+        nodePos[n*3]=nd.p.x;nodePos[n*3+1]=nd.p.y;nodePos[n*3+2]=nd.p.z;
+      }
+      nodeGeo.attributes.position.needsUpdate=true;
+      // plexus links
+      var li=0,a,b,dx,dy,dz,dd;
+      for(a=0;a<PXN&&li<MAXL;a++){
+        for(b=a+1;b<PXN&&li<MAXL;b++){
+          dx=nodes[a].p.x-nodes[b].p.x;if(dx>LINKD||dx<-LINKD)continue;
+          dy=nodes[a].p.y-nodes[b].p.y;if(dy>LINKD||dy<-LINKD)continue;
+          dz=nodes[a].p.z-nodes[b].p.z;
+          dd=dx*dx+dy*dy+dz*dz;
+          if(dd<LINKD*LINKD){
+            linePos[li*6]=nodes[a].p.x;linePos[li*6+1]=nodes[a].p.y;linePos[li*6+2]=nodes[a].p.z;
+            linePos[li*6+3]=nodes[b].p.x;linePos[li*6+4]=nodes[b].p.y;linePos[li*6+5]=nodes[b].p.z;
+            li++;
+          }
+        }
+      }
+      lineGeo.setDrawRange(0,li*2);
+      lineGeo.attributes.position.needsUpdate=true;
+      // streaks
+      streaks.forEach(function(s){
+        var u=s.userData,k2=(t-u.t0)/u.dur;
+        if(k2>=1){resetStreak(s,t);s.material.opacity=0;return}
+        if(k2<0){s.material.opacity=0;return}
+        s.position.lerpVectors(u.from,u.to,k2);
+        s.material.opacity=Math.sin(k2*Math.PI)*.9;
+        s.scale.setScalar(.4+Math.sin(k2*Math.PI)*.5);
+      });
+      // bokeh
+      bokeh.forEach(function(s){
+        var u=s.userData;
+        s.position.y=u.fy+Math.sin(t*u.sp+u.ph)*.8;
+        var kk=u.base*(1+Math.sin(t*u.sp*1.3+u.ph)*.18);
+        s.scale.set(kk,kk,1);
+      });
+      // studio animation
+      studio.position.y=SY+Math.sin(t*.7)*.24;
+      panelGroup.rotation.y=-.52+Math.sin(t*.4)*.07+mx*.25;
+      panelGroup.rotation.x=.16+Math.cos(t*.5)*.04+my*.15;
+      var dp=(t%3.4)/2.2, dr=Math.min(dp,1);
+      tubeGeo.setDrawRange(0,Math.floor(tubeTotal*dr));
+      var tipP=penCurve.getPointAt(Math.min(dr,.999));
+      penTip.position.set(tipP.x,tipP.y,tipP.z+.12);
+      penTip.material.opacity=dr<1?1:Math.max(0,1-(dp-1)*2.5);
+      cursorMesh.position.y=.05+Math.sin(t*1.3)*.12;
+      cursorMesh.rotation.z=.12+Math.sin(t*.9)*.07;
+      cursorGlow.material.opacity=.35+Math.sin(t*1.3)*.15;
+      world.position.y=scrollY*.004;
+      camera.position.x+=(mx*3-camera.position.x)*.05;
+      camera.position.y+=(2.4-my*2-camera.position.y)*.05;
+      camera.lookAt(0,1.4,-6);
+      renderer.render(scene,camera);
+    })();
+  })();
+
+  /* ================= SITE-WIDE BACKDROP : DOTTED SPHERES + STARFIELD ================= */
+  (function(){
+    var canvas=document.getElementById('bg3d');if(!canvas)return;
+    var renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:false});
+    renderer.setPixelRatio(Math.min(DPR,1.5));
+    var scene=new THREE.Scene();
+    var camera=new THREE.PerspectiveCamera(55,1,0.1,120);
+    camera.position.set(0,0,16);
+    var world=new THREE.Group();scene.add(world);
+    var DEPTH=44;
+    var i;
+
+    // dotted spheres drifting down the page
+    var spheres=[];
+    var SPN=isMobile?4:7;
+    for(i=0;i<SPN;i++){
+      var geo=new THREE.IcosahedronGeometry(1.4+Math.random()*1.2,2);
+      var pts=new THREE.Points(geo,new THREE.PointsMaterial({
+        color:BLUE,size:.075,transparent:true,opacity:.5,sizeAttenuation:true,
+        map:TEX_DOT,blending:THREE.AdditiveBlending,depthWrite:false
+      }));
+      var side=i%2===0?1:-1;
+      pts.position.set(side*(7+Math.random()*6),1-(i+0.5)*(DEPTH/SPN),-6-Math.random()*6);
+      pts.userData={ry:.0035+Math.random()*.003,rx:.0012+Math.random()*.002,fy:pts.position.y,sp:.2+Math.random()*.3,ph:Math.random()*6};
+      world.add(pts);spheres.push(pts);
+    }
+
+    // one large dotted ring mid-page
+    var ringGeo=new THREE.TorusGeometry(4.6,.02,6,180);
+    var ring=new THREE.Points(ringGeo,new THREE.PointsMaterial({
+      color:BLUE,size:.06,transparent:true,opacity:.4,sizeAttenuation:true,
+      map:TEX_DOT,blending:THREE.AdditiveBlending,depthWrite:false
+    }));
+    ring.position.set(isMobile?0:6,-DEPTH*.55,-8);
+    ring.rotation.x=1.1;
+    world.add(ring);
+
+    // bokeh down the page
+    var bok=[];
+    var BN2=isMobile?6:12;
+    for(i=0;i<BN2;i++){
+      var s=new THREE.Sprite(new THREE.SpriteMaterial({map:i%2?TEX_BRIGHT:TEX_SOFT,transparent:true,opacity:.18,blending:THREE.AdditiveBlending,depthWrite:false}));
+      s.position.set((Math.random()-.5)*30,4-Math.random()*DEPTH*1.1,-10+Math.random()*8);
+      var sc=.8+Math.random()*2.2;s.scale.setScalar(sc);
+      s.userData={base:sc,sp:.3+Math.random()*.6,ph:Math.random()*6};
+      world.add(s);bok.push(s);
+    }
+
+    // starfield
+    var PN=isMobile?200:520;
+    var pos=new Float32Array(PN*3);
+    for(i=0;i<PN;i++){
+      pos[i*3]=(Math.random()-.5)*44;
+      pos[i*3+1]=4-Math.random()*DEPTH*1.15;
+      pos[i*3+2]=-12+Math.random()*14;
+    }
+    var pGeo=new THREE.BufferGeometry();
+    pGeo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    var pMat=new THREE.PointsMaterial({color:BLUE,size:.06,transparent:true,opacity:.4,sizeAttenuation:true,depthWrite:false});
+    var points=new THREE.Points(pGeo,pMat);
+    world.add(points);
+
+    function applyTheme(){
+      var dark=rootEl.dataset.theme==='dark';
+      spheres.forEach(function(s){s.material.opacity=dark?.55:.3;s.material.color.set(dark?BLUE:0x1a4a9e)});
+      ring.material.opacity=dark?.45:.25;
+      ring.material.color.set(dark?BLUE:0x1a4a9e);
+      bok.forEach(function(s){s.material.opacity=dark?.22:.09});
+      pMat.opacity=dark?.5:.26;
+      pMat.color.set(dark?BLUE:0x1a4a9e);
+      pMat.blending=dark?THREE.AdditiveBlending:THREE.NormalBlending;
+      pMat.needsUpdate=true;
+    }
+    applyTheme();
+    addEventListener('skifi-theme',applyTheme);
+
+    function size(){renderer.setSize(innerWidth,innerHeight,false);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix()}
+    size();addEventListener('resize',size);
+    var clock=new THREE.Clock();
+    (function loop(){
+      requestAnimationFrame(loop);
+      var t=clock.getElapsedTime();
+      var docH=document.documentElement.scrollHeight-innerHeight;
+      var prog=docH>0?scrollY/docH:0;
+      camera.position.y=-prog*DEPTH;
+      camera.position.x=Math.sin(t*.05)*.5;
+      spheres.forEach(function(s){
+        s.rotation.y+=s.userData.ry;s.rotation.x+=s.userData.rx;
+        s.position.y=s.userData.fy+Math.sin(t*s.userData.sp+s.userData.ph)*.8;
+      });
+      ring.rotation.z=t*.06;
+      bok.forEach(function(s){
+        var k=s.userData.base*(1+Math.sin(t*s.userData.sp+s.userData.ph)*.2);
+        s.scale.set(k,k,1);
+      });
+      points.rotation.y=t*.008;
+      renderer.render(scene,camera);
+    })();
+  })();
+})();
+</script>
+</body>
+</html>
